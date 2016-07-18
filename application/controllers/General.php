@@ -43,7 +43,20 @@ class General extends CI_Controller {
 		}
 
 		echo $response;	
+	}
 
-		
+	public function getselectelements(){
+		$result = array();
+		$params = $this->input->get(NULL, TRUE);
+		if($params['elements'] == 'departamentos'){
+			$result['elements'] = $this->GeneralModel->getDepartamentos();
+		}else if($params['elements'] == 'municipios'){
+			$paramsMucpo['cod_dpto'] = $params['cod_dpto'];
+			$result['elements'] = $this->GeneralModel->getMunicipios($paramsMucpo);
+		}
+
+		$response = json_encode($result);
+
+		echo $response;	
 	}
 }

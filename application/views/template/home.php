@@ -14,7 +14,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-			<li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
+			<li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
 				<li><a href="./formulario">Formulario</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -51,7 +51,7 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
-<div class="ff" style="margin:80px"></div>
+<div class="margin-space"></div>
 <div class="container">
 	<ol class="breadcrumb">
 		<li><a href="#">Home</a></li>
@@ -61,4 +61,9 @@
 	<div class="col-xm-12 col-sm-12 col-md-12">
 		<?php $this->load->view('template/home/' . $segment); ?>
 	</div>
+	
 </div>
+
+<div class="container footer">
+		<nav class="navbar navbar-inverse"></nav>
+	</div>

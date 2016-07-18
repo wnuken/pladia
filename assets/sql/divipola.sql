@@ -1,39 +1,4 @@
--- --------------------------------------------------------
--- Host:                         192.168.33.10
--- Versión del servidor:         5.5.50 - MySQL Community Server (GPL) by Remi
--- SO del servidor:              Linux
--- HeidiSQL Versión:             9.3.0.4984
--- --------------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
--- Volcando estructura de base de datos para pladia
-DROP DATABASE IF EXISTS `pladia`;
-CREATE DATABASE IF NOT EXISTS `pladia` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `pladia`;
-
-
--- Volcando estructura para tabla pladia.admin_user
-DROP TABLE IF EXISTS `admin_user`;
-CREATE TABLE IF NOT EXISTS `admin_user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `rol_id` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- Volcando datos para la tabla pladia.admin_user: ~1 rows (aproximadamente)
-/*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
-INSERT INTO `admin_user` (`user_id`, `username`, `password`, `rol_id`) VALUES
-	(1, 'usuario', 'test', 1);
-/*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
-
-
--- Volcando estructura para tabla pladia.departamentos
 DROP TABLE IF EXISTS `departamentos`;
 CREATE TABLE IF NOT EXISTS `departamentos` (
   `id_dpto` int(11) NOT NULL AUTO_INCREMENT,
@@ -43,8 +8,7 @@ CREATE TABLE IF NOT EXISTS `departamentos` (
   PRIMARY KEY (`id_dpto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla pladia.departamentos: ~33 rows (aproximadamente)
-/*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
+
 INSERT INTO `departamentos` (`id_dpto`, `codigo`, `departamento`, `ISO`) VALUES
 	(1, '5', 'Antioquia', 'ANT'),
 	(2, '8', 'Atlantico', 'ATL'),
@@ -79,10 +43,7 @@ INSERT INTO `departamentos` (`id_dpto`, `codigo`, `departamento`, `ISO`) VALUES
 	(31, '95', 'Guaviare', 'GUV'),
 	(32, '97', 'Vaupes', 'VAU'),
 	(33, '99', 'Vichada', 'VIC');
-/*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
 
-
--- Volcando estructura para tabla pladia.municipios
 DROP TABLE IF EXISTS `municipios`;
 CREATE TABLE IF NOT EXISTS `municipios` (
   `id_munipo` int(11) NOT NULL,
@@ -96,8 +57,7 @@ CREATE TABLE IF NOT EXISTS `municipios` (
   CONSTRAINT `MUNICIPIOS_CODDPTO_FK1` FOREIGN KEY (`cod_dpto`) REFERENCES `departamentos` (`id_dpto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla pladia.municipios: ~1.123 rows (aproximadamente)
-/*!40000 ALTER TABLE `municipios` DISABLE KEYS */;
+
 INSERT INTO `municipios` (`id_munipo`, `codigo`, `cod_compuesto`, `municipio`, `ISO`, `cod_dpto`) VALUES
 	(1, '1', '5001', 'Medellin', 'MEDEL', 1),
 	(2, '678', '73678', 'San Luis', 'SANLU', 23),
@@ -1222,7 +1182,7 @@ INSERT INTO `municipios` (`id_munipo`, `codigo`, `cod_compuesto`, `municipio`, `
 	(1121, '624', '73624', 'Rovira', 'ROVIR', 23),
 	(1122, '671', '73671', 'Saldana', 'SALDA', 23),
 	(1123, '675', '73675', 'San Antonio', 'SANAN', 23);
-/*!40000 ALTER TABLE `municipios` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ENAGP_MUNICIPIOS` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,629 @@
+<form id="Form2" name="Form2">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<legend class="md-subhead">D. DATOS DEL HOGAR</legend>
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>¿Cuántas personas componen su hogar?</label>
+						<input type="number" ng-model="Encuesta.cuantaspersonas1" required>
+					</md-input-container>
+				</div>
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>Incluyendo sala-comedor ¿de cuántos cuartos en total dispone su hogar?</label>
+						<input type="number" ng-model="Encuesta.cuartos" required>
+					</md-input-container>
+				</div>
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>¿En cuántos de esos cuartos  duermen las personas de su hogar?</label>
+						<input type="number" ng-model="Encuesta.habitaciones" required>
+					</md-input-container>
+				</div>
+
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>¿Cómo eliminan principalmente la basura en su hogar?</label>
+						<md-select ng-model="Encuesta.basura" required>
+							<md-option value="1">Por recolección pública o privada</md-option>
+							<md-option value="2">La tiran a un río, quebrada o laguna</md-option>
+							<md-option value="3">La tiran a un lote, zanja o baldío</md-option>
+							<md-option value="4">La queman o entierran</md-option>
+							<md-option value="5">La eliminan de otra forma</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div class="col-xm-12 col-sm-12 col-md-12"></div>
+				<div class="col-xm-12 col-sm-4 col-md-4">
+					<md-input-container class="md-block">
+						<label>La vivienda es</label>
+						<md-select ng-model="Encuesta.modovivienda" required>
+							<md-option value="1">Propia</md-option>
+							<md-option value="2">En arriendo o subarriendo</md-option>
+							<md-option value="3">En usufructo</md-option>
+							<md-option value="4">Posesión sin titulo</md-option>
+							<md-option value="5">Otra</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
+				<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.modovivienda == 1">
+					<label>Algún miembro de este hogar tiene  escritura registrada de la vivienda</label>
+					<md-switch ng-model="Encuesta.escritura" aria-label="Avalanchas" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+
+					</md-switch>
+				</div>
+
+				<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.modovivienda == 1 && Encuesta.escritura == 1">
+					<label>La escritura está a nombre de</label>
+					<div class="form-group">
+						<md-checkbox ng-model="Encuesta.propiajefe" aria-label="Jefe(a) del hogar" class="md-primary" value="1">
+							Jefe(a) del hogar
+						</md-checkbox>
+						<md-checkbox ng-model="Encuesta.propiaconyuge" aria-label="Cónyuge" class="md-primary" value="1">
+							Cónyuge
+						</md-checkbox>
+						<md-checkbox ng-model="Encuesta.propiahijos" aria-label="Hijos" class="md-primary" value="1">
+							Hijos
+						</md-checkbox>
+						<md-checkbox ng-model="Encuesta.propiaotros" aria-label="Otras personas del hogar" class="md-primary" value="1">
+							Otras personas del hogar 
+						</md-checkbox>
+					</div>
+				</div>
+
+				<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.modovivienda == 2">
+					<md-input-container class="md-block">
+						<label>¿Cuánto pagan mensualmente de arriendo?</label>
+						<input type="number" ng-model="Encuesta.arriendo" required>
+					</md-input-container>
+				</div>
+
+				<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.modovivienda == 5">
+					<md-input-container class="md-block">
+						<label>¿Cúal?</label>
+						<input type="text" ng-model="Encuesta.modoviviendaotra" required>
+					</md-input-container>
+				</div>
+				<div class="col-xm-12 col-sm-12 col-md-12"></div>
+
+
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>¿Su hogar en cuáles de los siguiente lugares  prepara los alimentos?</label>
+						<md-select ng-model="Encuesta.dondecocina" required>
+							<md-option value="1">En un cuarto usado solo para cocinar</md-option>
+							<md-option value="2">En un cuarto usado también para dormir</md-option>
+							<md-option value="3">En una sala comedor con lavaplatos</md-option>
+							<md-option value="4">En una sala comedor sin lavaplatos</md-option>
+							<md-option value="5">En un patio, corredor, enramada, al aire libre</md-option>
+							<md-option value="6">En ninguna parte, no preparan alimentos</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
+
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>El agua para preparar los alimentos la obtienen principalmente de:</label>
+						<md-select ng-model="Encuesta.dondeagua" required>
+							<md-option value="1">Acueducto público</md-option>
+							<md-option value="2">Acueducto comunal o veredal.</md-option>
+							<md-option value="3">Pozo con bomba</md-option>
+							<md-option value="4">Pozo sin bomba, jagüey</md-option>
+							<md-option value="5">Agua lluvia</md-option>
+							<md-option value="6">Río, quebrada, manantial o nacimiento</md-option>
+							<md-option value="7">Pila pública, aguatero</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
+
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>El servicio sanitario que utiliza el hogar es:</label>
+						<md-select ng-model="Encuesta.sanitario" required>
+							<md-option value="1">Inodoro conectado a alcantarillado</md-option>
+							<md-option value="2">Inodoro conectado a pozo séptico</md-option>
+							<md-option value="3">Inodoro sin conexión</md-option>
+							<md-option value="4">Letrina</md-option>
+							<md-option value="5">Bajamar</md-option>
+							<md-option value="6">No tiene servicio sanitario </md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<legend class="md-subhead">E. SEGURIDAD ALIMENTARIA</legend>
+
+				<div class="col-xm-12 col-sm-12 col-md-12">
+					<md-input-container class="md-block">
+						<label>Cuáles son los principales alimentos incluidos en su alimentación?</label>
+						<textarea name="princialalimento" ng-model="Encuesta.princialalimento" required md-maxlength="500" maxlength="500" required></textarea>
+						<div ng-messages="Form2.princialalimento.$error" ng-show="Form2.princialalimento.$dirty">
+							<div ng-message="required">Este campo es requerido</div>
+							<div ng-message="md-maxlength">Demaciado Largo</div>
+						</div>
+					</md-input-container>
+				</div>
+
+				<div class="col-xm-12 col-sm-4 col-md-4">
+					<label>Sabe usted que es soberanía alimentaria</label>
+					<md-radio-group ng-model="Encuesta.soberaniaalimentaria" layout="row">
+						<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+						<md-radio-button value="2" class="md-primary">No</md-radio-button>
+					</md-radio-group>
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<legend class="md-subhead">F. ASPECTOS ECONÍMCOS</legend>
+
+				<div class="col-xm-12 col-sm-12 col-md-12">
+					<label>Es trabajador o propietario de una parcela?</label>
+					<md-radio-group ng-model="Encuesta.trabajaparcela" layout="row">
+						<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+						<md-radio-button value="2" class="md-primary">No</md-radio-button>
+					</md-radio-group>
+					<div class="margin-checkbox"></div>
+				</div>
+				<div ng-if="Encuesta.trabajaparcela == 1">
+
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-input-container class="md-block">
+							<label>La parcela es:</label>
+							<md-select ng-model="Encuesta.rolenparcela" required>
+								<md-option value="1">Propia</md-option>
+								<md-option value="2">Arrendada</md-option>
+								<md-option value="3">Trabaja como agregado</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div ng-if="Encuesta.rolenparcela == 2">
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label>¿Cuánto paga por concepto de arriendo?</label>
+								<md-select ng-model="Encuesta.arriendoparcela" required>
+									<md-option value="1">Entre 10.000 y 500.000</md-option>
+									<md-option value="2">Entre 500.000 y 1.000.000</md-option>
+									<md-option value="3">Entre 1.000.000 y 2.000.000</md-option>
+									<md-option value="4">Más de 2.000.000</md-option>
+								</md-select>
+							</md-input-container>
+						</div>
+
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label>¿Hace cuánto tiempo la tiene arrendada?</label>
+								<input type="text" ng-model="Encuesta.parcelaarriendotiempo" required class="datepicker-m">
+							</md-input-container>
+						</div>
+
+					</div>
+
+					<div ng-if="Encuesta.rolenparcela == 1">
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>La parcela esta escriturada</label>
+							<md-radio-group ng-model="Encuesta.parcelaescritura" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+						</div>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-input-container class="md-block">
+							<label>La extensión de la parcela/tierras es de:</label>
+							<md-select ng-model="Encuesta.parcelaextension" required>
+								<md-option value="1">Menos de 1 hectárea </md-option>
+								<md-option value="2">Entre 1 y 5 hectáreas</md-option>
+								<md-option value="3">Entre 6 y 15 hectáreas </md-option>
+								<md-option value="4">Entre 16 y 30 hectáreas </md-option>
+								<md-option value="5">Entre 31 y 50 hectáreas</md-option>
+								<md-option value="6">Más de 51 hectáreas</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+					<div class="col-xm-12 col-sm-12 col-md-12"></div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>¿Qué propiedades posee?</label>
+							<md-select ng-model="Encuesta.propiedades" required>
+								<md-option value="1">Casa</md-option>
+								<md-option value="2">Fincas/ tierras</md-option>
+								<md-option value="3">Cultivos</md-option>
+								<md-option value="4">Semovientes</md-option>
+								<md-option value="5">Maquinaria</md-option>
+								<md-option value="6">herramientas de trabajo</md-option>
+								<md-option value="7">Otros</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.propiedades == 7">
+						<md-input-container class="md-block">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.propiedadescuales" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>El uso del suelo de la parcela está establecido por:</label>
+							<md-select ng-model="Encuesta.usoparcela" required>
+								<md-option value="1">Producción agrícola</md-option>
+								<md-option value="2">Producción pecuaria</md-option>
+								<md-option value="3">Bosques</md-option>
+								<md-option value="4">Otro Usos</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.usoparcela == 4">
+						<md-input-container class="md-block">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.usoparcelacuales" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Ha sido obligado o presionado a dejar sus tierras y propiedades?</label>
+						<md-radio-group ng-model="Encuesta.dejartierra" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div ng-if="Encuesta.dejartierra == 1">
+
+						<div class="col-xm-12 col-sm-4 col-md-4">
+							<md-input-container class="md-block">
+								<label>Cuál ha sido la causa?</label>
+								<md-select ng-model="Encuesta.dejatierracausa" required>
+									<md-option value="1">El conflicto armado (actores armados)</md-option>
+									<md-option value="2"> Ha sido presionado por latifundistas</md-option>
+									<md-option value="3">Transnacionales le han querido comprar la tierra</md-option>
+									<md-option value="4">Otra</md-option>
+								</md-select>
+							</md-input-container>
+						</div>
+
+						<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.dejatierracausa == 4">
+							<md-input-container class="md-block">
+								<label>Cuales?</label>
+								<input type="text" ng-model="Encuesta.dejatierracausacuales" required>
+							</md-input-container>
+						</div>
+
+						<div class="col-xm-12 col-sm-4 col-md-4">
+							<md-input-container class="md-block">
+								<label>¿Hace cuanto tiempo?</label>
+								<input type="text" class="datepickermon" ng-model="Encuesta.dejatierracausatiempo" required readonly is-datemon>
+							</md-input-container>
+						</div>
+						
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Ha tenido dificultades para  acceder  a sus propiedades?</label>
+						<md-radio-group ng-model="Encuesta.dificultadpro" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12" ng-if="Encuesta.dificultadpro == 1">
+						<md-input-container class="md-block">
+							<label>De qué tipo?</label>
+							<input type="text" ng-model="Encuesta.dificultadprotipo" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Ha sido inducido a vender su parcela?</label>
+						<md-radio-group ng-model="Encuesta.inducirventa" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12" ng-if="Encuesta.inducirventa == 1">
+						<md-input-container class="md-block">
+							<label>¿A quién?</label>
+							<md-select ng-model="Encuesta.inducirventaquien" required>
+								<md-option value="1">Gobierno</md-option>
+								<md-option value="2">Transnacionales</md-option>
+								<md-option value="3">Particulares</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+
+					<legend class="md-subhead">¿En su finca, Qué actividades económicas realiza?</legend>	
+
+					<div class="col-xm-12">
+						<div class="row">
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoCrianza" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Crianza de animales:
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoCrianza == 1">
+									<label>Cuales?</label>
+									<input type="text" ng-model="Encuesta.actecoCrianzacual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoSiembra" aria-label="Siembra de cultivos" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Siembra de cultivos
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoSiembra == 1">
+									<label>Cuantas veces?</label>
+									<input type="text" ng-model="Encuesta.actecoSiembracual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoAgro" aria-label="Actividades agropecuarias" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Actividades agropecuarias
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoAgro == 1">
+									<label>Cuantas veces?</label>
+									<input type="text" ng-model="Encuesta.actecoAgrocual" required>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xm-12">
+						<div class="row">
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoEmpleado" aria-label="Empleado en el sector oficial" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Empleado en el sector oficial
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoEmpleado == 1">
+									<label>Cuáles</label>
+									<input type="text" ng-model="Encuesta.actecoEmpleadocual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoEmpleadop" aria-label="Empleado de sector privado" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Empleado de sector privado
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoEmpleadop == 1">
+									<label>Cuáles</label>
+									<input type="text" ng-model="Encuesta.actecoEmpleadopcual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoPropie" aria-label="Propietario empresa o negocio" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Propietario empresa o negocio
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoPropie == 1">
+									<label>Cuáles</label>
+									<input type="text" ng-model="Encuesta.actecoPropiecual" required>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xm-12">
+						<div class="row">
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoFabricacion" aria-label="Fabricación y/o comercialización" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Fabricación y/o comercialización
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoFabricacion == 1">
+									<label>Cuales?</label>
+									<input type="text" ng-model="Encuesta.actecoFabricacioncual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoServicios" aria-label="Prestación de servicios" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Prestación de servicios
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoServicios == 1">
+									<label>Cuáles</label>
+									<input type="text" ng-model="Encuesta.actecoServicioscual" required>
+								</md-input-container>
+							</div>
+
+							<div class="col-xm-12 col-sm-4 col-md-4">
+								<md-switch ng-model="Encuesta.actecoOtros" aria-label="Otros" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+									Otros
+								</md-switch>
+								<md-input-container class="md-block" ng-if="Encuesta.actecoOtros == 1">
+									<label>Cuáles</label>
+									<input type="text" ng-model="Encuesta.actecoOtroscual" required>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xm-12 col-sm-4 col-md-4">
+						<md-input-container class="md-block">
+							<label>limitantes  para comercializar los productos agropecuarios</label>
+							<md-select ng-model="Encuesta.limiteComerAgro" required>
+								<md-option value="1">Falta de asesoría y capacitación</md-option>
+								<md-option value="2"> Infraestructura vial</md-option>
+								<md-option value="3">Costos de transporte</md-option>
+								<md-option value="4">Tiempo de desplazamiento</md-option>
+								<md-option value="5">Bloqueos militares</md-option>
+								<md-option value="6">Otros</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-4 col-md-4">
+						<md-input-container class="md-block">
+							<label>Recibe usted asistencia técnica?</label>
+							<md-select ng-model="Encuesta.asistenciaTec" required>
+								<md-option value="1">Casa comercial</md-option>
+								<md-option value="2">UMATA</md-option>
+								<md-option value="3">CAR</md-option>
+								<md-option value="4">Particular</md-option>
+								<md-option value="5">Otra </md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.asistenciaTec == 5">
+						<md-input-container class="md-block">
+							<label>Cúal?</label>
+							<input type="text" ng-model="Encuesta.asistenciaTecCual" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>limitantes  que impiden la producción agropecuaria</label>
+							<md-select ng-model="Encuesta.limiteCProAgro" required>
+								<md-option value="1">Falta de Información para subsidios y credito</md-option>
+								<md-option value="2">Falta de incentivos por parte del Estado</md-option>
+								<md-option value="3">Manejo inadecuado de  prácticas culturales</md-option>
+								<md-option value="4">Falta de capacitación agropecuaria</md-option>
+								<md-option value="5">Falta de asistencia técnica</md-option>
+								<md-option value="6">Bajos niveles de comercialización</md-option>
+								<md-option value="7">Situación de orden publico</md-option>
+								<md-option value="8">Otros</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.limiteCProAgro == 8">
+						<md-input-container class="md-block">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.limiteCProAgroCual" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-switch ng-model="Encuesta.orgSocial" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+							Las organizaciones sociales existentes evidencian las necesidades de la comunidad, articulan y promueven alternativas de desarrollo sostenibles?
+						</md-switch>
+						<md-input-container class="md-block" ng-if="Encuesta.orgSocial == 1">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.orgSocialcual" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-switch ng-model="Encuesta.orgProd" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+							¿Existen organizaciones  de producción agrícola, pecuaria y de productos?
+						</md-switch>
+						<md-input-container class="md-block" ng-if="Encuesta.orgProd == 1">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.orgProdcual" required>
+						</md-input-container>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-switch ng-model="Encuesta.orgExplo" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+							¿Se encuentra usted organizado para la explotación de los recursos pecuarios/agrícolas?
+						</md-switch>
+						<md-input-container class="md-block" ng-if="Encuesta.orgExplo == 1">
+							<label>¿En qué tipo de organización?</label>
+							<input type="text" ng-model="Encuesta.orgExplocual" required>
+						</md-input-container>
+					</div>
+
+
+
+					
+					<legend>54. ¿Cuáles son las debilidades del gremio al cual pertenece, de acuerdo a su actividad económica</legend>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Formación empresarial y productiva</label>
+						<md-radio-group ng-model="Encuesta.debilgremioEmpresa" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Ausencia de espacios de comunicación y decisión con el Estado</label>
+						<md-radio-group ng-model="Encuesta.debilgremioComunicacion" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Acceso al mercado de sus productos</label>
+						<md-radio-group ng-model="Encuesta.debilgremioMercado" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Falta de Organización entre los productores</label>
+						<md-radio-group ng-model="Encuesta.debilgremioOrganiza" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Los precios del comercio en la región son bajos</label>
+						<md-radio-group ng-model="Encuesta.debilgremioPrecio" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<label>Situación de orden publico</label>
+						<md-radio-group ng-model="Encuesta.debilgremioOrdPubl" layout="row">
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+						<div class="margin-checkbox"></div>
+					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<md-switch ng-model="Encuesta.debilgremioOtros" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+							Otros
+						</md-switch>
+						<md-input-container class="md-block" ng-if="Encuesta.debilgremioOtros == 1">
+							<label>Cuales?</label>
+							<input type="text" ng-model="Encuesta.debilgremioOtroscual" required>
+						</md-input-container>
+					</div>
+				</div> <!-- trabajaparcela -->
+			</div>
+		</div>
+
+
+
+	</div>
+</form>
+<md-button class="md-raised md-primary" ng-disabled="!Form2.$valid" ng-click="saveForm1('form3', 'menu-tab3')">
+	<span class="glyphicon glyphicon-floppy-disk"></span> Guardar y continuar
+</md-button>

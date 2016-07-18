@@ -28,7 +28,7 @@ class Home extends CI_Controller {
 		if(is_numeric($this->session->rol) && $this->session->rol == 1){
 			$data["controller"] = "home";
 			$data["view"] = "home";
-			$data["segment"] = 'identificacion';
+			$data["segment"] = 'formulario';
 			$this->load->view('layout',$data);
 		}else{
 			redirect("/");

@@ -1,11 +1,16 @@
+.margin-space {
+	margin:80px
+}
 
-.bs-form {
-    margin-right: 0;
-    margin-left: 0;
+.margin-checkbox {
+	margin:15px
+}
+
+.form-control[readonly], .form-control {
     background-color: #fff;
-    border-color: #ddd;
-    border-width: 1px;
-    border-radius: 4px 4px 0 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    opacity: 1;
+}
+
+md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+    color: rgba(255,0,0,0.87);
 }

@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url("assets/bootstrap/css/bootstrap.min.css"); ?>">
 
+	<link href="<?php echo base_url("assets/datepicker/css/bootstrap-datepicker.min.css"); ?>" rel="stylesheet"/>
 	<link href="<?php echo base_url("assets/angularjs/css/ng-grid.css"); ?>" rel="stylesheet"/>
 	<link href="<?php echo base_url("assets/angularjs/css/angular-material.min.css"); ?>" rel="stylesheet" >
 	<link href="<?php echo base_url("assets/css/style.css"); ?>" rel="stylesheet" >
@@ -23,6 +24,9 @@
 <script src="<?php echo base_url("assets/jquery/jquery.2.2.4.min.js"); ?>"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?> "></script>
+<script src="<?php echo base_url("/assets/datepicker/js/bootstrap-datepicker.min.js"); ?>" rel="stylesheet"></script>
+<script src="<?php echo base_url("/assets/datepicker/locales/bootstrap-datepicker.es.min.js"); ?>" rel="stylesheet"></script>
+
 <script type="text/javascript" src="<?php echo base_url("assets/angularjs/js/angular.1.5.7.min.js"); ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url("assets/angularjs/js/angular-animate.min.js"); ?>"></script>
