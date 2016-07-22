@@ -51,6 +51,22 @@ this.validate = function(values, callbackFunc) {
 
 });
 
+pladiaApp.directive("isDate", function() {
+	return {
+		require: "ngModel",
+		scope: {
+			isDate: '='
+		},
+		link: function(scope, element, attrs, ctrl) {
+			$('input.datepicker').datepicker({
+		format: "yyyy/mm/dd",
+		startDate: "1900/01/01",
+		language: "es",
+		autoclose: true
+	});
+		}
+	};
+});
 
 pladiaApp.directive("isDateyear", function() {
 	return {

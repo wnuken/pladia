@@ -32,7 +32,7 @@
         </li>
 
 
-        <li role="presentation" class="menu-tab" id="menu-tab3">
+        <li role="presentation" class="menu-tab" id="menu-tab4">
           <a class="md-primary" href="#form4" role="tab" id="profile-tab" data-toggle="tab" aria-controls="form4" aria-expanded="false" ng-click="changeTab('form4')">
             CARÁCTERISTICAS GENERALES
           </a>
@@ -51,6 +51,9 @@
   </div>
   <div id="form3" class="theform hide">
     <?php $this->load->view('template/home/form3'); ?>
+  </div>
+  <div id="form4" class="theform hide">
+    <?php $this->load->view('template/home/form4'); ?>
   </div>
 </div>
 <div class="col-xm-12 col-sm-6 col-md-6"></div>

@@ -542,7 +542,12 @@
 						<md-switch ng-model="Encuesta.orgExplo" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
 							¿Se encuentra usted organizado para la explotación de los recursos pecuarios/agrícolas?
 						</md-switch>
-						<md-input-container class="md-block" ng-if="Encuesta.orgExplo == 1">
+					</div>
+
+
+					<div ng-if="Encuesta.orgExplo == 1">
+					<div class="col-xm-12 col-sm-12 col-md-12">
+					<md-input-container class="md-block">
 							<label>¿En qué tipo de organización?</label>
 							<input type="text" ng-model="Encuesta.orgExplocual" required>
 						</md-input-container>
@@ -551,7 +556,7 @@
 
 
 					
-					<legend>54. ¿Cuáles son las debilidades del gremio al cual pertenece, de acuerdo a su actividad económica</legend>
+					<legend>¿Cuáles son las debilidades del gremio al cual pertenece, de acuerdo a su actividad económica</legend>
 
 					<div class="col-xm-12 col-sm-6 col-md-6">
 						<label>Formación empresarial y productiva</label>
@@ -616,6 +621,8 @@
 							<input type="text" ng-model="Encuesta.debilgremioOtroscual" required>
 						</md-input-container>
 					</div>
+					</div>
+
 				</div> <!-- trabajaparcela -->
 			</div>
 		</div>
