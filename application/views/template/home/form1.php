@@ -92,7 +92,7 @@
         <div class="col-xm-12 col-sm-4 col-md-4">
           <md-input-container class="md-block">
             <label>Total de personas en el hogar</label>
-            <input type="number" ng-model="Encuesta.totalpersonas" required>
+            <input type="number" ng-model="Encuesta.totalpersonas" required ng-change="generateForm4(Encuesta.totalpersonas)">
            </md-input-container>
         </div>
 

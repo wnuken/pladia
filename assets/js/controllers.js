@@ -137,6 +137,7 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 	$scope.Encuesta = {};
 	$scope.departamentos = {};
 	$scope.municipios = {};
+	$scope.FinalDate = [];
 
 	var paramsTpto = {
 		'elements': {
@@ -184,6 +185,27 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 		$('li#' + idtab).addClass('active');
 
 		
+	};
+
+	$scope.generateForm4 = function(value){
+		if(typeof value != 'undefined' && value > 0){
+			$scope.senForm4 = [];
+			$scope.upaValues = true;
+			for (i = 0; i < value; i++) { 
+				$scope.senForm4.push(i);
+			};
+
+		};
+	};
+
+	$scope.validateEdad = function(dateEdad, sen){
+		var valuetoYear = 1000 * 60 * 60 * 24 * 365;
+		var date1 = new Date(dateEdad);
+		var date2 = new Date();
+		var date3 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
+		var date4 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
+		$scope.FinalDate[sen] = (date3 - date4) / valuetoYear;
+		// console.log($scope.FinalDate);
 	};
 
 }]);
