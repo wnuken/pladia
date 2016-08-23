@@ -185,12 +185,16 @@
 								</div>
 								<div class="col-xm-12 col-sm-6 col-md-6">
 									<md-slider-container>
-
-										<md-slider flex min="0" max="10" ng-model="Encuesta.presona[sen]['califique']" aria-label="blue" id="blue-slider" class="md-primary">
-										</md-slider>
-										<md-input-container>
+										<div flex="10" layout layout-align="center center">
+											<span class="md-body-1">
+												<md-input-container>
 											<input flex type="text" ng-model="Encuesta.presona[sen]['califique']" aria-label="blue" aria-controls="blue-slider" readonly>
 										</md-input-container>
+											</span>
+										</div>
+										<md-slider flex md-discrete ng-model="Encuesta.presona[sen]['califique']" step="1" min="1" max="10" aria-label="rating" class="md-primary">
+										</md-slider>
+
 									</md-slider-container>
 								</div>
 							</div>
@@ -233,73 +237,73 @@
 								</div>
 							</div>
 							<div ng-if="FinalDate[sen] > 3">
-							<div class="row">
-								<legend class="md-subhead">K. EDUCACIÓN</legend>
-								<div class="col-xm-12 col-sm-4 col-md-4">
-									<label>¿Sabe leer y escribir?</label>
-									<md-radio-group ng-model="Encuesta.presona[sen]['leerescribir']" layout="row" required>
-										<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-										<md-radio-button value="2" class="md-primary">No</md-radio-button>
-									</md-radio-group>
+								<div class="row">
+									<legend class="md-subhead">K. EDUCACIÓN</legend>
+									<div class="col-xm-12 col-sm-4 col-md-4">
+										<label>¿Sabe leer y escribir?</label>
+										<md-radio-group ng-model="Encuesta.presona[sen]['leerescribir']" layout="row" required>
+											<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+											<md-radio-button value="2" class="md-primary">No</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div class="col-xm-12 col-sm-4 col-md-4">
+										<label>¿asiste al preescolar, escuela, colegio o universidad?</label>
+										<md-radio-group ng-model="Encuesta.presona[sen]['asisteeduca']" layout="row" required>
+											<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+											<md-radio-button value="2" class="md-primary">No</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.presona[sen]['asisteeduca'] == 1">
+										<label>El establecimiento al que asiste.... ¿es oficial?</label>
+										<md-radio-group ng-model="Encuesta.presona[sen]['oficialeduca']" layout="row" required>
+											<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+											<md-radio-button value="2" class="md-primary">No</md-radio-button>
+										</md-radio-group>
+									</div>
 								</div>
-								<div class="col-xm-12 col-sm-4 col-md-4">
-									<label>¿asiste al preescolar, escuela, colegio o universidad?</label>
-									<md-radio-group ng-model="Encuesta.presona[sen]['asisteeduca']" layout="row" required>
-										<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-										<md-radio-button value="2" class="md-primary">No</md-radio-button>
-									</md-radio-group>
+								<div class="margin-checkbox"></div>
+								<div class="row">
+									<div class="col-xm-12 col-sm-4 col-md-4">
+										<md-input-container class="md-block">
+											<label>Nivel educativo</label>
+											<md-select ng-model="Encuesta.presona[sen]['tipominera']" required>
+												<md-option value="1">Ninguno</md-option>
+												<md-option value="2">Preescolar</md-option>
+												<md-option value="3">Básica primaria (1o - 5o)</md-option>
+												<md-option value="4">Básica secundaria (6o - 9o)</md-option>
+												<md-option value="5">Media (10o - 13o)</md-option>
+												<md-option value="6">Superior o universitaria</md-option>
+												<md-option value="7">No sabe, no informa</md-option>
+											</md-select>
+										</md-input-container>
+									</div>
+									<div class="col-xm-12 col-sm-4 col-md-4">
+										<label>tomas algún transporte para dirigirse a la institución educativa</label>
+										<md-radio-group ng-model="Encuesta.presona[sen]['transporteeduca']" layout="row" required>
+											<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+											<md-radio-button value="2" class="md-primary">No</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.presona[sen]['transporteeduca'] == 1">
+										<label>El transporte es subsidiado</label>
+										<md-radio-group ng-model="Encuesta.presona[sen]['transporteeducasubsidio']" layout="row" required>
+											<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+											<md-radio-button value="2" class="md-primary">No</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div class="col-xm-12 col-sm-4 col-md-4">
+										<md-input-container class="md-block">
+											<label>medio de trasporte utilizado</label>
+											<md-select ng-model="Encuesta.presona[sen]['transporteeducatipo']" required>
+												<md-option value="1">A pie</md-option>
+												<md-option value="2">En cicla</md-option>
+												<md-option value="3">En moto</md-option>
+												<md-option value="4">Vehículo particular</md-option>
+												<md-option value="5">Transporte publico</md-option>
+											</md-select>
+										</md-input-container>
+									</div>
 								</div>
-								<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.presona[sen]['asisteeduca'] == 1">
-									<label>El establecimiento al que asiste.... ¿es oficial?</label>
-									<md-radio-group ng-model="Encuesta.presona[sen]['oficialeduca']" layout="row" required>
-										<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-										<md-radio-button value="2" class="md-primary">No</md-radio-button>
-									</md-radio-group>
-								</div>
-							</div>
-							<div class="margin-checkbox"></div>
-							<div class="row">
-								<div class="col-xm-12 col-sm-4 col-md-4">
-									<md-input-container class="md-block">
-										<label>Nivel educativo</label>
-										<md-select ng-model="Encuesta.presona[sen]['tipominera']" required>
-											<md-option value="1">Ninguno</md-option>
-											<md-option value="2">Preescolar</md-option>
-											<md-option value="3">Básica primaria (1o - 5o)</md-option>
-											<md-option value="4">Básica secundaria (6o - 9o)</md-option>
-											<md-option value="5">Media (10o - 13o)</md-option>
-											<md-option value="6">Superior o universitaria</md-option>
-											<md-option value="7">No sabe, no informa</md-option>
-										</md-select>
-									</md-input-container>
-								</div>
-								<div class="col-xm-12 col-sm-4 col-md-4">
-									<label>tomas algún transporte para dirigirse a la institución educativa</label>
-									<md-radio-group ng-model="Encuesta.presona[sen]['transporteeduca']" layout="row" required>
-										<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-										<md-radio-button value="2" class="md-primary">No</md-radio-button>
-									</md-radio-group>
-								</div>
-								<div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.presona[sen]['transporteeduca'] == 1">
-									<label>El transporte es subsidiado</label>
-									<md-radio-group ng-model="Encuesta.presona[sen]['transporteeducasubsidio']" layout="row" required>
-										<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-										<md-radio-button value="2" class="md-primary">No</md-radio-button>
-									</md-radio-group>
-								</div>
-								<div class="col-xm-12 col-sm-4 col-md-4">
-									<md-input-container class="md-block">
-										<label>medio de trasporte utilizado</label>
-										<md-select ng-model="Encuesta.presona[sen]['transporteeducatipo']" required>
-											<md-option value="1">A pie</md-option>
-											<md-option value="2">En cicla</md-option>
-											<md-option value="3">En moto</md-option>
-											<md-option value="4">Vehículo particular</md-option>
-											<md-option value="5">Transporte publico</md-option>
-										</md-select>
-									</md-input-container>
-								</div>
-							</div>
 							</div>
 							<div class="margin-checkbox"></div>
 							<div class="row" ng-if="FinalDate[sen] > 10">

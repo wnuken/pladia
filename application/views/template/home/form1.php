@@ -25,17 +25,34 @@
           </md-input-container>
         </div>
 
-        <div class="col-xm-12 col-sm-4 col-md-4">
+        <div class="col-xm-12 col-sm-6 col-md-6">
           <md-input-container class="md-block">
             <label>Corregimiento</label>
             <input type="text" ng-model="Encuesta.corregimiento" required>
           </md-input-container>
         </div>
 
-        <div class="col-xm-12 col-sm-4 col-md-4">
+        <div class="col-xm-12 col-sm-6 col-md-6">
           <md-input-container class="md-block">
             <label>Vereda</label>
             <input type="text" ng-model="Encuesta.vereda" required>
+          </md-input-container>
+        </div>
+
+        <div class="col-xm-12 col-sm-12 col-md-12">
+        <div class="row">
+        <div class="col-xm-12 col-sm-4 col-md-4">
+          <label>Territorio <small>*</small></label>
+            <md-radio-group ng-model="Encuesta.resguardo" layout="row" required>
+              <md-radio-button value="1" class="md-primary">Resguardo Indígena</md-radio-button>
+              <md-radio-button value="2" class="md-primary">Consejo Comunitario</md-radio-button>
+            </md-radio-group>
+        </div>
+
+        <div class="col-xm-12 col-sm-4 col-md-4">
+          <md-input-container class="md-block">
+            <label>Nombre del territorio</label>
+            <input type="text" ng-model="Encuesta.nomcomunidad" required>
           </md-input-container>
         </div>
 
@@ -45,6 +62,8 @@
               <md-radio-button value="1" class="md-primary">Centro Poblado</md-radio-button>
               <md-radio-button value="2" class="md-primary"> Rural disperso </md-radio-button>
             </md-radio-group>
+        </div>
+        </div>
         </div>
 
         <div class="col-xm-12 col-sm-6 col-md-6">
@@ -93,6 +112,9 @@
           <md-input-container class="md-block">
             <label>Total de personas en el hogar</label>
             <input type="number" ng-model="Encuesta.totalpersonas" required ng-change="generateForm4(Encuesta.totalpersonas)">
+              <md-tooltip md-direction="top">
+                La pestaña de caracteristicas generales depende del numero de personas en este campo
+              </md-tooltip>
            </md-input-container>
         </div>
 
@@ -159,6 +181,10 @@
           Otro desastre natural
         </md-switch>
         <md-input-container class="md-block" ng-if="Encuesta.otrodesastre == 1">
+          <label>Cual?</label>
+          <input type="text" ng-model="Encuesta.otrodesastrecual" required>
+        </md-input-container>
+        <md-input-container class="md-block" ng-if="Encuesta.otrodesastre == 1">
           <label>Cuantas veces?</label>
           <input type="number" ng-model="Encuesta.otrodesastrecuantas" required>
         </md-input-container>
@@ -176,21 +202,23 @@
 
       <legend class="md-subhead">B. RELACIONES TERRITORIALES</legend>
 
-      <div class="col-xm-12 col-sm-6 col-md-6">
+      <div class="col-xm-12 col-sm-12 col-md-12">
         <label>¿Ha vivido siempre en este municipio? <small>*</small></label>
         <md-radio-group ng-model="Encuesta.tiempovivido" layout="row" required>
           <md-radio-button value="1" class="md-primary">Si</md-radio-button>
           <md-radio-button value="2" class="md-primary">No</md-radio-button>
         </md-radio-group>
-        <div ng-if="Encuesta.tiempovivido == 2">
+        
+      </div>
+
+      <div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.tiempovivido == 2">
         <md-input-container class="md-block">
           <label>Desde que año?</label>
           <input type="text" ng-model="Encuesta.tiempovividoanos" class="datepickeryear" required readonly is-dateyear>
         </md-input-container>
         </div>
-      </div>
 
-      <div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.tiempovivido == 2">
+      <div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.tiempovivido == 2">
         <md-input-container class="md-block">
           <label>Razón para venir a este municipio <small>*</small></label>
           <md-select ng-model="Encuesta.razonvivirnum" required>
@@ -203,12 +231,13 @@
             <md-option value="7">Otra</md-option>
           </md-select>
         </md-input-container>
-        <div ng-if="Encuesta.tiempovivido == 2 && Encuesta.razonvivirnum == 7">
+        
+      </div>
+      <div class="col-xm-12 col-sm-4 col-md-4" ng-if="Encuesta.tiempovivido == 2 && Encuesta.razonvivirnum == 7">
         <md-input-container class="md-block">
             <label>¿Cual?</label>
             <input type="text" ng-model="Encuesta.razonvivirnumcual" required>
            </md-input-container>
-      </div>
       </div>
 
       

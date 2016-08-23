@@ -34,7 +34,35 @@
 						</md-select>
 					</md-input-container>
 				</div>
+				<div class="col-xm-12 col-sm-12 col-md-12">
+					<label>¿De qué actividades provienen las basuras de su hogar?</label>
+				</div>
+
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-switch-container layout="row">
+						<md-switch aria-label="Domesticas" ng-model="Encuesta.basuraActividad1" class="md-primary">
+							Domesticas
+						</md-switch>
+						<md-switch aria-label="Comerciales" ng-model="Encuesta.basuraActividad2" class="md-primary">
+							Comerciales
+						</md-switch>
+					</md-switch-container>
+				</div>
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<md-input-container class="md-block">
+						<label>¿Cómo eliminan principalmente la basura en su hogar?</label>
+						<md-select ng-model="Encuesta.basura" required>
+							<md-option value="1">Por recolección pública o privada</md-option>
+							<md-option value="2">La tiran a un río, quebrada o laguna</md-option>
+							<md-option value="3">La tiran a un lote, zanja o baldío</md-option>
+							<md-option value="4">La queman o entierran</md-option>
+							<md-option value="5">La eliminan de otra forma</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
 				<div class="col-xm-12 col-sm-12 col-md-12"></div>
+
 				<div class="col-xm-12 col-sm-4 col-md-4">
 					<md-input-container class="md-block">
 						<label>La vivienda es</label>
@@ -209,7 +237,7 @@
 						<div class="col-xm-12 col-sm-6 col-md-6">
 							<md-input-container class="md-block">
 								<label>¿Hace cuánto tiempo la tiene arrendada?</label>
-								<input type="text" ng-model="Encuesta.parcelaarriendotiempo" required class="datepicker-m">
+								<input type="text" ng-model="Encuesta.parcelaarriendotiempo" required class="datepickermon" is-datemon>
 							</md-input-container>
 						</div>
 
@@ -546,81 +574,81 @@
 
 
 					<div ng-if="Encuesta.orgExplo == 1">
-					<div class="col-xm-12 col-sm-12 col-md-12">
-					<md-input-container class="md-block">
-							<label>¿En qué tipo de organización?</label>
-							<input type="text" ng-model="Encuesta.orgExplocual" required>
-						</md-input-container>
-					</div>
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<md-input-container class="md-block">
+								<label>¿En qué tipo de organización?</label>
+								<input type="text" ng-model="Encuesta.orgExplocual" required>
+							</md-input-container>
+						</div>
 
 
 
-					
-					<legend>¿Cuáles son las debilidades del gremio al cual pertenece, de acuerdo a su actividad económica</legend>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Formación empresarial y productiva</label>
-						<md-radio-group ng-model="Encuesta.debilgremioEmpresa" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<legend>¿Cuáles son las debilidades del gremio al cual pertenece, de acuerdo a su actividad económica</legend>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Ausencia de espacios de comunicación y decisión con el Estado</label>
-						<md-radio-group ng-model="Encuesta.debilgremioComunicacion" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Formación empresarial y productiva</label>
+							<md-radio-group ng-model="Encuesta.debilgremioEmpresa" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Acceso al mercado de sus productos</label>
-						<md-radio-group ng-model="Encuesta.debilgremioMercado" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Ausencia de espacios de comunicación y decisión con el Estado</label>
+							<md-radio-group ng-model="Encuesta.debilgremioComunicacion" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Falta de Organización entre los productores</label>
-						<md-radio-group ng-model="Encuesta.debilgremioOrganiza" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Acceso al mercado de sus productos</label>
+							<md-radio-group ng-model="Encuesta.debilgremioMercado" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Los precios del comercio en la región son bajos</label>
-						<md-radio-group ng-model="Encuesta.debilgremioPrecio" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Falta de Organización entre los productores</label>
+							<md-radio-group ng-model="Encuesta.debilgremioOrganiza" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
 
-					<div class="col-xm-12 col-sm-6 col-md-6">
-						<label>Situación de orden publico</label>
-						<md-radio-group ng-model="Encuesta.debilgremioOrdPubl" layout="row">
-							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
-							<md-radio-button value="2" class="md-primary">No</md-radio-button>
-						</md-radio-group>
-						<div class="margin-checkbox"></div>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Los precios del comercio en la región son bajos</label>
+							<md-radio-group ng-model="Encuesta.debilgremioPrecio" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
 
-					<div class="col-xm-12 col-sm-12 col-md-12">
-						<md-switch ng-model="Encuesta.debilgremioOtros" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
-							Otros
-						</md-switch>
-						<md-input-container class="md-block" ng-if="Encuesta.debilgremioOtros == 1">
-							<label>Cuales?</label>
-							<input type="text" ng-model="Encuesta.debilgremioOtroscual" required>
-						</md-input-container>
-					</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Situación de orden publico</label>
+							<md-radio-group ng-model="Encuesta.debilgremioOrdPubl" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
+						</div>
+
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<md-switch ng-model="Encuesta.debilgremioOtros" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+								Otros
+							</md-switch>
+							<md-input-container class="md-block" ng-if="Encuesta.debilgremioOtros == 1">
+								<label>Cuales?</label>
+								<input type="text" ng-model="Encuesta.debilgremioOtroscual" required>
+							</md-input-container>
+						</div>
 					</div>
 
 				</div> <!-- trabajaparcela -->

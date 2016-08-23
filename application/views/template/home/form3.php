@@ -1,6 +1,5 @@
 <form id="Form3" name="Form3">
 	<div class="row">
-
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<legend>F.  ASPECTO ECONÓMICO (Continuación) </legend>
