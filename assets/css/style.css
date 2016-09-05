@@ -14,3 +14,7 @@
 md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
     color: rgba(255,0,0,0.87);
 }
+
+.block md-checkbox {
+	display: block;
+}

@@ -34,38 +34,79 @@
 						</md-select>
 					</md-input-container>
 				</div>
-				<div class="col-xm-12 col-sm-12 col-md-12">
-					<label>¿De qué actividades provienen las basuras de su hogar?</label>
-				</div>
-
+				<div class="col-xm-12 col-sm-12 col-md-12"></div>
 				<div class="col-xm-12 col-sm-6 col-md-6">
-					<md-switch-container layout="row">
-						<md-switch aria-label="Domesticas" ng-model="Encuesta.basuraActividad1" class="md-primary">
-							Domesticas
-						</md-switch>
-						<md-switch aria-label="Comerciales" ng-model="Encuesta.basuraActividad2" class="md-primary">
-							Comerciales
-						</md-switch>
-					</md-switch-container>
+					<div class="row">
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<label>¿De qué actividades provienen las basuras de su hogar?</label>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.basuraActividad1" aria-label="Domesticas" class="md-primary" value="1">
+									Domesticas
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraActividad2" aria-label="Comerciales" class="md-primary" value="1">
+									Comerciales
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.basuraActividad3" aria-label="Agropecuarias" class="md-primary" value="1">
+									Agropecuarias
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraActividad4" aria-label="Otra" class="md-primary" value="1">
+									Otra
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<md-input-container class="md-block" ng-if="Encuesta.basuraActividad4">
+								<label>¿Cual?</label>
+								<input type="text" ng-model="Encuesta.basuraActividad4Cual" required>
+							</md-input-container>
+						</div>
+					</div>
 				</div>
 				<div class="col-xm-12 col-sm-6 col-md-6">
-					<md-input-container class="md-block">
-						<label>¿Cómo eliminan principalmente la basura en su hogar?</label>
-						<md-select ng-model="Encuesta.basura" required>
-							<md-option value="1">Por recolección pública o privada</md-option>
-							<md-option value="2">La tiran a un río, quebrada o laguna</md-option>
-							<md-option value="3">La tiran a un lote, zanja o baldío</md-option>
-							<md-option value="4">La queman o entierran</md-option>
-							<md-option value="5">La eliminan de otra forma</md-option>
-						</md-select>
-					</md-input-container>
+					<div class="row">
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<label>¿Cómo separa sus basuras?</label>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.basuraPrepara1" aria-label="Domesticas" class="md-primary" value="1">
+									Orgánicos (residuos de cocina)
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraPrepara2" aria-label="Comerciales" class="md-primary" value="1">
+									Inorgánicos (bolsas, latas, etc)
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraPrepara3" aria-label="Agropecuarias" class="md-primary" value="1">
+									Papel y cartón
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.basuraPrepara4" aria-label="Otra" class="md-primary" value="1">
+									Metal
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraPrepara5" aria-label="Otra" class="md-primary" value="1">
+									Vidrio
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.basuraPrepara6" aria-label="Otra" class="md-primary" value="1">
+									Plástico
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+					</div>
 				</div>
 
 				<div class="col-xm-12 col-sm-12 col-md-12"></div>
 
 				<div class="col-xm-12 col-sm-4 col-md-4">
 					<md-input-container class="md-block">
-						<label>La vivienda es</label>
+						<label>La vivienda ocupada por su hogar es</label>
 						<md-select ng-model="Encuesta.modovivienda" required>
 							<md-option value="1">Propia</md-option>
 							<md-option value="2">En arriendo o subarriendo</md-option>
@@ -345,7 +386,7 @@
 								<input type="text" class="datepickermon" ng-model="Encuesta.dejatierracausatiempo" required readonly is-datemon>
 							</md-input-container>
 						</div>
-						
+
 					</div>
 
 					<div class="col-xm-12 col-sm-12 col-md-12">
