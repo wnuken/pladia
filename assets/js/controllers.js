@@ -59,11 +59,11 @@ pladiaApp.directive("isDate", function() {
 		},
 		link: function(scope, element, attrs, ctrl) {
 			$('input.datepicker').datepicker({
-		format: "yyyy/mm/dd",
-		startDate: "1900/01/01",
-		language: "es",
-		autoclose: true
-	});
+				format: "yyyy/mm/dd",
+				startDate: "1900/01/01",
+				language: "es",
+				autoclose: true
+			});
 		}
 	};
 });
@@ -76,12 +76,12 @@ pladiaApp.directive("isDateyear", function() {
 		},
 		link: function(scope, element, attrs, ctrl) {
 			$('input.datepickeryear').datepicker({
-		format: "yyyy",
-		startDate: "1900",
-		language: "es",
-		autoclose: true,
-		minViewMode: 2
-	});
+				format: "yyyy",
+				startDate: "1900",
+				language: "es",
+				autoclose: true,
+				minViewMode: 2
+			});
 		}
 	};
 });
@@ -95,12 +95,12 @@ pladiaApp.directive("isDatemon", function() {
 		},
 		link: function(scope, element, attrs, ctrl) {
 			$('input.datepickermon').datepicker({
-		format: "yyyy/mm",
-		startDate: "1900/01",
-		language: "es",
-		autoclose: true,
-		minViewMode: 1
-	});
+				format: "yyyy/mm",
+				startDate: "1900/01",
+				language: "es",
+				autoclose: true,
+				minViewMode: 1
+			});
 		}
 	};
 });
@@ -191,10 +191,33 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 		if(typeof value != 'undefined' && value > 0){
 			$scope.senForm4 = [];
 			$scope.upaValues = true;
-			for (i = 0; i < value; i++) { 
+			for (i = 0; i < value; i++) {
 				$scope.senForm4.push(i);
 			};
+		};
+	};
 
+
+	$scope.generatePredios = function(value){
+		if(typeof value != 'undefined' && value > 0){
+			$scope.predios = [];
+			//$scope.upaValues = true;
+			for (i = 0; i < value; i++) {
+				$scope.predios.push(i);
+			};
+		};
+	};
+
+	$scope.generateCultivos = function(value, id){
+		if(typeof value != 'undefined' && value > 0){
+			$scope.cultivos = [];
+			$scope.cultivos[id] = [];
+			//$scope.upaValues = true;
+			for (i = 0; i < value; i++) {
+				$scope.cultivos[id].push(i);
+			};
+
+			console.log($scope.cultivos);
 		};
 	};
 

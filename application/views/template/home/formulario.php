@@ -27,13 +27,16 @@
 
         <li role="presentation" class="menu-tab" id="menu-tab3">
           <a class="md-primary" href="#form3" role="tab" id="profile-tab" data-toggle="tab" aria-controls="form3" aria-expanded="false" ng-click="changeTab('form3')">
+            ECONÓMICO PRODUCTIVO
+          </a>
+        </li>
+        <li role="presentation" class="menu-tab" id="menu-tab4">
+          <a class="md-primary" href="#form4" role="tab" id="profile-tab" data-toggle="tab" aria-controls="form4" aria-expanded="false" ng-click="changeTab('form4')">
             SOCIAL Y OTRAS
           </a>
         </li>
-
-
-        <li role="presentation" class="menu-tab" id="menu-tab4">
-          <a class="md-primary" href="#form4" role="tab" id="profile-tab" data-toggle="tab" aria-controls="form4" aria-expanded="false" ng-click="changeTab('form4')">
+        <li role="presentation" class="menu-tab" id="menu-tab5">
+          <a class="md-primary" href="#form5" role="tab" id="profile-tab" data-toggle="tab" aria-controls="form5" aria-expanded="false" ng-click="changeTab('form5')">
             CARÁCTERISTICAS GENERALES
           </a>
         </li>
@@ -54,6 +57,9 @@
   </div>
   <div id="form4" class="theform hide">
     <?php $this->load->view('template/home/form4'); ?>
+  </div>
+  <div id="form5" class="theform hide">
+    <?php $this->load->view('template/home/form5'); ?>
   </div>
 </div>
 <div class="col-xm-12 col-sm-6 col-md-6"></div>
