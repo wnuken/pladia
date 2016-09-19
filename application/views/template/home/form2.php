@@ -188,6 +188,40 @@
 					</md-input-container>
 				</div>
 
+				<div class="col-xm-12 col-sm-6 col-md-6">
+					<div class="row">
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<label>¿ En que actividades usa el agua de la vivienda?</label>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.aguaActividad1" aria-label="Domesticas" class="md-primary" value="1">
+									Domesticas
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.aguaActividad2" aria-label="Comerciales" class="md-primary" value="1">
+									Agrícolas
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-checkbox-container class="block">
+								<md-checkbox ng-model="Encuesta.aguaActividad3" aria-label="Agropecuarias" class="md-primary" value="1">
+									Pecuarias
+								</md-checkbox>
+								<md-checkbox ng-model="Encuesta.aguaActividad4" aria-label="Otra" class="md-primary" value="1">
+									Otra
+								</md-checkbox>
+							</md-checkbox-container>
+						</div>
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<md-input-container class="md-block" ng-if="Encuesta.aguaActividad4">
+								<label>¿Cual?</label>
+								<input type="text" ng-model="Encuesta.aguaActividad4Cual" required>
+							</md-input-container>
+						</div>
+					</div>
+				</div>
+
 
 				<div class="col-xm-12 col-sm-6 col-md-6">
 					<md-input-container class="md-block">
@@ -331,6 +365,8 @@
 						</md-input-container>
 					</div>
 
+					<div class="col-xm-12 col-sm-12 col-md-12"></div>
+
 					<div class="col-xm-12 col-sm-6 col-md-6">
 						<md-input-container class="md-block">
 							<label>El uso del suelo de la parcela está establecido por:</label>
@@ -349,6 +385,8 @@
 							<input type="text" ng-model="Encuesta.usoparcelacuales" required>
 						</md-input-container>
 					</div>
+
+					<div class="col-xm-12 col-sm-12 col-md-12"></div>
 
 					<div class="col-xm-12 col-sm-12 col-md-12">
 						<label>¿Ha sido obligado o presionado a dejar sus tierras y propiedades?</label>
@@ -445,7 +483,7 @@
 									Siembra de cultivos
 								</md-switch>
 								<md-input-container class="md-block" ng-if="Encuesta.actecoSiembra == 1">
-									<label>Cuantas veces?</label>
+									<label>Cuales?</label>
 									<input type="text" ng-model="Encuesta.actecoSiembracual" required>
 								</md-input-container>
 							</div>
@@ -455,7 +493,7 @@
 									Actividades agropecuarias
 								</md-switch>
 								<md-input-container class="md-block" ng-if="Encuesta.actecoAgro == 1">
-									<label>Cuantas veces?</label>
+									<label>Cuales?</label>
 									<input type="text" ng-model="Encuesta.actecoAgrocual" required>
 								</md-input-container>
 							</div>
@@ -548,6 +586,7 @@
 						<md-input-container class="md-block">
 							<label>Recibe usted asistencia técnica?</label>
 							<md-select ng-model="Encuesta.asistenciaTec" required>
+								<md-option value="0">Ninguna</md-option>
 								<md-option value="1">Casa comercial</md-option>
 								<md-option value="2">UMATA</md-option>
 								<md-option value="3">CAR</md-option>

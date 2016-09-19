@@ -65,15 +65,20 @@
 								<input type="text" ng-model="Encuesta.proyProductivoEntidad" required>
 							</md-input-container>
 						</div>
-						<div class="col-xm-12 col-sm-6 col-md-6">
-							<md-switch ng-model="Encuesta.proyProFunciona" aria-label="Crianza de animales:" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
-								Actualmente funciona
-							</md-switch>
 
+
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<label>Actualmente funciona</label>
+							<md-radio-group ng-model="Encuesta.proyProFunciona" layout="row">
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+							<div class="margin-checkbox"></div>
 						</div>
-						<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.proyProFunciona == 1">
+
+						<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.proyProFunciona == 2">
 							<md-input-container class="md-block">
-								<label>¿Por qué?</label>
+								<label>¿Por qué no funciona?</label>
 								<input type="text" ng-model="Encuesta.proyProFuncionaPorque" required>
 							</md-input-container>
 						</div>

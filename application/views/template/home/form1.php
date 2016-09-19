@@ -4,7 +4,7 @@
       <div class="panel-body">
         <legend class="md-subhead">A. MODULO DE IDENTIFICACIÓN</legend>
 
-        <div class="col-xm-12 col-sm-6 col-md-6">
+        <div class="col-xm-12 col-sm-4 col-md-4">
           <md-input-container class="md-block">
             <label>Departamento <small>*</small></label>
             <md-select ng-model="Encuesta.departamento" ng-change="getMunicipio()" required>
@@ -14,7 +14,7 @@
             </md-select>
           </md-input-container>
         </div>
-        <div class="col-xm-12 col-sm-6 col-md-6">
+        <div class="col-xm-12 col-sm-4 col-md-4">
           <md-input-container class="md-block">
             <label>Municipio <small>*</small></label>
             <md-select ng-model="Encuesta.municipio" required>
@@ -25,22 +25,21 @@
           </md-input-container>
         </div>
 
-        <div class="col-xm-12 col-sm-6 col-md-6">
+        <div class="col-xm-12 col-sm-4 col-md-4">
           <md-input-container class="md-block">
             <label>Corregimiento</label>
             <input type="text" ng-model="Encuesta.corregimiento" required>
           </md-input-container>
         </div>
-
-        <div class="col-xm-12 col-sm-6 col-md-6">
-          <md-input-container class="md-block">
-            <label>Vereda</label>
-            <input type="text" ng-model="Encuesta.vereda" required>
-          </md-input-container>
-        </div>
-
         <div class="col-xm-12 col-sm-12 col-md-12">
         <div class="row">
+        <div class="col-xm-12 col-sm-4 col-md-4">
+          <label>Sector rural <small>*</small></label>
+            <md-radio-group ng-model="Encuesta.sectorrural" layout="row" required>
+              <md-radio-button value="1" class="md-primary">Centro Poblado</md-radio-button>
+              <md-radio-button value="2" class="md-primary"> Rural disperso </md-radio-button>
+            </md-radio-group>
+        </div>
         <div class="col-xm-12 col-sm-4 col-md-4">
           <label>Territorio <small>*</small></label>
             <md-radio-group ng-model="Encuesta.resguardo" layout="row" required>
@@ -56,13 +55,7 @@
           </md-input-container>
         </div>
 
-        <div class="col-xm-12 col-sm-4 col-md-4">
-          <label>Sector rural <small>*</small></label>
-            <md-radio-group ng-model="Encuesta.sectorrural" layout="row" required>
-              <md-radio-button value="1" class="md-primary">Centro Poblado</md-radio-button>
-              <md-radio-button value="2" class="md-primary"> Rural disperso </md-radio-button>
-            </md-radio-group>
-        </div>
+        
         </div>
         </div>
 
