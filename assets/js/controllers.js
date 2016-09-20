@@ -202,6 +202,8 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 		if(typeof value != 'undefined' && value > 0){
 			$scope.predios = [];
 			//$scope.upaValues = true;
+			if(value > 30)
+				value = 30;
 			for (i = 0; i < value; i++) {
 				$scope.predios.push(i);
 			};
@@ -218,6 +220,30 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 			};
 
 			console.log($scope.cultivos);
+		};
+	};
+
+	$scope.generatePecuaria = function(value){
+		if(typeof value != 'undefined' && value > 0){
+			$scope.pecuarios = [];
+			if(value > 30)
+				value = 30;
+			//$scope.upaValues = true;
+			for (i = 0; i < value; i++) {
+				$scope.pecuarios.push(i);
+			};
+		};
+	};
+
+	$scope.generateExplotacion = function(value){
+		if(typeof value != 'undefined' && value > 0){
+			$scope.explotaciones = [];
+			if(value > 30)
+				value = 30;
+			//$scope.upaValues = true;
+			for (i = 0; i < value; i++) {
+				$scope.explotaciones.push(i);
+			};
 		};
 	};
 
