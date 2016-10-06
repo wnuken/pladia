@@ -189,18 +189,18 @@
 							<div class="row">
 								<br>
 								<div class="col-xm-12 col-sm-12 col-md-12">
-									<label>Califique de 1 a 10 la atención del gobierno a temas ambientales</label>
+									<label>Califique de 1 a 5 la atención del gobierno a temas ambientales</label>
 								</div>
 								<div class="col-xm-12 col-sm-6 col-md-6">
 									<md-slider-container>
-										<div flex="10" layout layout-align="center center">
+										<div flex="5" layout layout-align="center center">
 											<span class="md-body-1">
 												<md-input-container>
 													<input flex type="text" ng-model="Encuesta.presona[sen]['califique']" aria-label="blue" aria-controls="blue-slider" readonly>
 												</md-input-container>
 											</span>
 										</div>
-										<md-slider flex md-discrete ng-model="Encuesta.presona[sen]['califique']" step="1" min="1" max="10" aria-label="rating" class="md-primary">
+										<md-slider flex md-discrete ng-model="Encuesta.presona[sen]['califique']" step="1" min="1" max="5" aria-label="rating" class="md-primary">
 										</md-slider>
 
 									</md-slider-container>

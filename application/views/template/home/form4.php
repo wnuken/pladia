@@ -329,7 +329,151 @@
 					</div>
 				</div>
 
+				<legend class="md-subhead">I.  CONFLICTO ARMADO</legend>
 
+				<div class="col-xm-12 col-sm-12 col-md-12">
+					<label>¿Ha sido usted o algún miembro de su hogar  víctima de desplazamiento forzado?</label>
+					<md-radio-group ng-model="Encuesta.desplazamientoForzado" layout="row" required>
+						<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+						<md-radio-button value="2" class="md-primary">No</md-radio-button>
+					</md-radio-group>
+				</div>
+
+				<div ng-if="Encuesta.desplazamientoForzado == 1">
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>¿Cuántas veces?</label>
+							<input type="text" ng-model="Encuesta.desplazamientoForzadoCuantas" required>
+						</md-input-container>
+					</div>
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>Frente al último desplazamiento ¿en qué año ocurrieron los hechos?</label>
+							<input type="text" ng-model="Encuesta.desplazamientoForzadoanio" required>
+						</md-input-container>
+					</div>
+					<div class="col-xm-12 col-sm-6 col-md-6">
+						<md-input-container class="md-block">
+							<label>¿Cuánto tiempo demoro la situación de desplazamiento?</label>
+							<input type="text" ng-model="Encuesta.desplazamientoForzadoanioFin" required>
+						</md-input-container>
+					</div>
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Fue despojado de tierras? (le quitaron tierras)</label>
+						<md-radio-group ng-model="Encuesta.desplazamientoForzadoQTierra" layout="row" required>
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+					</div>
+					<div ng-if="Encuesta.desplazamientoForzadoQTierra == 1">
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label>¿Cuántas hectáreas?</label>
+								<input type="text" ng-model="Encuesta.desplazamientoForzadoHect" required>
+							</md-input-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label>¿Cuál fue el grupo o actor responsable de su desplazamiento?</label>
+								<input type="text" ng-model="Encuesta.desplazamientoForzadoGrup" required>
+							</md-input-container>
+						</div>
+					</div>
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Ha retornado usted a su tierra o predio?</label>
+						<md-radio-group ng-model="Encuesta.desplazamientoForzadoRetorno" layout="row" required>
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+					</div>
+					<div ng-if="Encuesta.desplazamientoForzadoRetorno == 2">
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label>¿Por qué no ha retornado?</label>
+								<md-select ng-model="Encuesta.desplazamientoForzadoRetornoPQ" required>
+									<md-option value="1">Porque el grupo que lo desplazo continua haciendo presencia en la zona</md-option>
+									<md-option value="2">Porque su predio fue ocupado por otra persona</md-option>
+									<md-option value="3">Porque no desea regresar</md-option>
+									<md-option value="4">Tengo negocio / propiedades</md-option>
+									<md-option value="5">Otra</md-option>
+								</md-select>
+							</md-input-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.desplazamientoForzadoRetornoPQ == 5">
+							<md-input-container class="md-block">
+								<label>¿Cúal?</label>
+								<input type="text" ng-model="Encuesta.desplazamientoForzadoRetornoPQC" required>
+							</md-input-container>
+						</div>
+					</div>
+					<div class="col-xm-12 col-sm-12 col-md-12">
+						<label>¿Ha sido usted o su grupo familiar víctima de alguna violación grave a los derechos humanos o derecho  internacional humanitario por algún actor armado?</label>
+						<md-radio-group ng-model="Encuesta.desplazamientoForzadoViolacion" layout="row" required>
+							<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+							<md-radio-button value="2" class="md-primary">No</md-radio-button>
+						</md-radio-group>
+					</div>
+
+					<div ng-if="Encuesta.desplazamientoForzadoViolacion == 1">
+						<div class="col-xm-12 col-sm-6 col-md-6">
+							<md-input-container class="md-block">
+								<label> ¿Qué tipo de violación?</label>
+								<md-select ng-model="Encuesta.desplazamientoForzadoViolacionTipo" required>
+									<md-option value="1">Ejecuciones extrajudiciales</md-option>
+									<md-option value="2">Desaparición forzada</md-option>
+									<md-option value="3">Tortura</md-option>
+									<md-option value="4">Despojo de propiedad</md-option>
+									<md-option value="5">Encarcelamiento injusto</md-option>
+									<md-option value="6">Violaciones</md-option>
+									<md-option value="7">Otra</md-option>
+								</md-select>
+							</md-input-container>
+						</div>
+						<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.desplazamientoForzadoViolacionTipo == 7">
+							<md-input-container class="md-block">
+								<label>¿Cúal?</label>
+								<input type="text" ng-model="Encuesta.desplazamientoForzadoViolacionTipoC" required>
+							</md-input-container>
+						</div>
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<md-input-container class="md-block">
+								<label>¿Cuál fue el grupo o actor responsable?</label>
+								<input type="text" ng-model="Encuesta.desplazamientoForzadoViolacionGrup" required>
+							</md-input-container>
+						</div>
+						<div class="col-xm-12 col-sm-12 col-md-12">
+							<label>¿Accedió a la justicia?</label>
+							<md-radio-group ng-model="Encuesta.desplazamientoForzadoJusticia" layout="row" required>
+								<md-radio-button value="1" class="md-primary">Si</md-radio-button>
+								<md-radio-button value="2" class="md-primary">No</md-radio-button>
+							</md-radio-group>
+						</div>
+						<div ng-if="Encuesta.desplazamientoForzadoJusticia == 2">
+							<div class="col-xm-12 col-sm-6 col-md-6">
+								<md-input-container class="md-block">
+									<label>¿Por qué no lo hizo?</label>
+									<md-select ng-model="Encuesta.desplazamientoForzadoJusticiaPQ" required>
+										<md-option value="1">Temor a represalias</md-option>
+										<md-option value="2">Dificultad en los trámites</md-option>
+										<md-option value="3">Poca credibilidad en el sistema de justicia</md-option>
+										<md-option value="4">No tenía interés en hacerlo</md-option>
+										<md-option value="5">Encarcelamiento injusto</md-option>
+										<md-option value="6">Otra</md-option>
+									</md-select>
+								</md-input-container>
+							</div>
+							<div class="col-xm-12 col-sm-6 col-md-6" ng-if="Encuesta.desplazamientoForzadoJusticiaPQ == 6">
+								<md-input-container class="md-block">
+									<label>¿Cúal?</label>
+									<input type="text" ng-model="Encuesta.desplazamientoForzadoJusticiaPQC" required>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+
+					
+					
+				</div>
 				
 			</div>
 		</div>
