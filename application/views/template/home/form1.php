@@ -273,19 +273,19 @@
 
       <div class="col-xm-12 col-sm-12 col-md-12">
         <div class="form-group">
-          <md-checkbox ng-model="Encuesta.servienergia" aria-label="Energía eléctrica" class="md-primary" value="1">
+          <md-checkbox ng-model="Encuesta.servienergia" aria-label="Energía eléctrica" class="md-primary" ng-true-value="'1'">
             Energía eléctrica
           </md-checkbox>
-          <md-checkbox ng-model="Encuesta.servigas" aria-label="Gas natural conectado a red pública" class="md-primary" value="1">
+          <md-checkbox ng-model="Encuesta.servigas" aria-label="Gas natural conectado a red pública" class="md-primary" ng-true-value="'1'">
             Gas natural conectado a red pública
           </md-checkbox>
-          <md-checkbox ng-model="Encuesta.servialcant" aria-label="Alcantarillado" class="md-primary" value="1">
+          <md-checkbox ng-model="Encuesta.servialcant" aria-label="Alcantarillado" class="md-primary" ng-true-value="'1'">
             Alcantarillado
           </md-checkbox>
-          <md-checkbox ng-model="Encuesta.servireco" aria-label="Recolección de basuras" class="md-primary" value="1">
+          <md-checkbox ng-model="Encuesta.servireco" aria-label="Recolección de basuras" class="md-primary" ng-true-value="'1'">
             Recolección de basuras
           </md-checkbox>
-          <md-checkbox ng-model="Encuesta.serviacueducto" aria-label="Acueducto" class="md-primary" value="1">
+          <md-checkbox ng-model="Encuesta.serviacueducto" aria-label="Acueducto" class="md-primary" ng-true-value="'1'">
             Acueducto
           </md-checkbox>
         </div>

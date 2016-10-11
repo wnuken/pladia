@@ -49,6 +49,32 @@ this.validate = function(values, callbackFunc) {
     });
 };
 
+this.save = function(params, path, callbackFunc) {
+	$http({
+		method: 'GET',
+		url: path,
+		params: params
+        /// headers: {'Authorization': 'Token token=xxxxYYYYZzzz'}
+    }).success(function(response){
+    	callbackFunc(response);
+    }).error(function(){
+    	console.log("error");
+    });
+};
+
+this.get = function(params, path, callbackFunc) {
+	$http({
+		method: 'GET',
+		url: path,
+		params: params
+        /// headers: {'Authorization': 'Token token=xxxxYYYYZzzz'}
+    }).success(function(response){
+    	callbackFunc(response);
+    }).error(function(){
+    	console.log("error");
+    });
+};
+
 });
 
 pladiaApp.directive("isDate", function() {
@@ -131,13 +157,32 @@ pladiaApp.controller('LoginController', ['$scope', 'dataService', 'localStorageS
 	console.log('Hola');
 }]);
 
-pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageService', '$window', function($scope, dataService, localStorageService, $window) {
+pladiaApp.controller('FormController', ['$scope', '$timeout', 'dataService', 'localStorageService', '$window', function($scope, $timeout, dataService, localStorageService, $window) {
 	console.log('hola');
+	var idForm = 1;
 
 	$scope.Encuesta = {};
 	$scope.departamentos = {};
 	$scope.municipios = {};
 	$scope.FinalDate = [];
+
+	$timeout(function () {
+
+		var url = '../general/getform';
+		dataService.get($scope.Encuesta, url, function(dataResponse){
+			console.log(dataResponse);
+			$scope.Encuesta = dataResponse;
+			$scope.getMunicipio();
+			//$scope.Encuesta.municipio = dataResponse.municipio;
+		});
+
+		/*if(localStorageService.isSupported && typeof idForm != 'undefined'){
+			$scope.Encuesta = localStorageService.get('Encuesta-' + idForm);
+			if($scope.Encuesta == null){
+				$scope.Encuesta = {};
+			};
+		};*/
+	}, 1500);
 
 	var paramsTpto = {
 		'elements': {
@@ -169,7 +214,7 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 
 
 			dataService.getSelectElements(paramsMcpo, function(dataResponse){
-				$scope.Encuesta.municipio = '';
+				//$scope.Encuesta.municipio = '';
 				$scope.municipios = dataResponse;
 			});
 
@@ -183,6 +228,15 @@ pladiaApp.controller('FormController', ['$scope', 'dataService', 'localStorageSe
 
 		$('li.menu-tab').removeClass('active');
 		$('li#' + idtab).addClass('active');
+
+		if(localStorageService.isSupported){
+			localStorageService.add('Encuesta-' + idForm, $scope.Encuesta);
+		};
+
+		var url = '../general/save';
+		dataService.save($scope.Encuesta, url, function(dataResponse){
+			console.log(dataResponse);
+		});
 
 		
 	};

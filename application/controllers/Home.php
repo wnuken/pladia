@@ -26,6 +26,15 @@ class Home extends CI_Controller {
 	public function formulario(){
 
 		if(is_numeric($this->session->rol) && $this->session->rol == 1){
+			$params = $this->input->get(NULL, TRUE);
+
+			if(isset($params['idform']) && $params['idform'] != ''){
+				$data["idform"] = $params["idform"];
+			}else{
+				$data["idform"] = strtotime("now");
+			}
+
+			$data["id_user"] = $this->session->id_user;
 			$data["controller"] = "home";
 			$data["view"] = "home";
 			$data["segment"] = 'formulario';

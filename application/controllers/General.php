@@ -59,4 +59,30 @@ class General extends CI_Controller {
 
 		echo $response;	
 	}
+
+	public function save(){
+		$result = array();
+		$input = $this->input->get(NULL, TRUE);
+
+		$params['idform'] = $input['idform'];
+		$params['iduser'] = $input['iduser'];
+		$params['dataform'] = json_encode($input);
+		
+		$result['id'] = $this->GeneralModel->saveForm($params);
+
+		$response = json_encode($result);
+
+		echo $response;	
+	}
+
+	public function getform(){
+		$result = array();
+		$params = $this->input->get(NULL, TRUE);
+
+		$result = $this->GeneralModel->getForm($params);
+
+		$response = $result['dataform'];
+
+		echo $response;	
+	}
 }

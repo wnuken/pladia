@@ -1,7 +1,7 @@
 <div ng-app="pladiaApp" ng-controller="FormController">
   <div class="row">
     <div class="col-xm-12 col-sm-12 col-md-12">
-      <h1 class="text-center">ENCUESTA DE HOGARES DE PRECEPCIÓN SOBRE LA SITUACIÓN DEPARTAMENTAL 
+      <h1 class="text-center">ENCUESTA DE HOGARES DE PERCEPCIÓN SOBRE LA SITUACIÓN DEPARTAMENTAL 
       </h1>
       <p>
         Buen día, esta encuesta hace parte de la construcción del PLAN DE DESARROLLO ANDINO AMZÓNICO PLADIA 2035  que está liderada por las organizaciones sociales, campesinas, sindicales, parte de la MOS  y esperamos que contribuya a mejorar las condiciones del Putumayo ADVERTENCIA: toda la información que contiene este formulario, así como sus datos personales serán de manejo exclusivo del equipo del Plan de desarrollo, no tendrán difusión alguna y se manejarán con el rigor y seguridad del caso.
@@ -46,6 +46,10 @@
     </div>
   </div>
   <br>
+  <div class="hide">
+    {{Encuesta.iduser = <?php echo $id_user; ?>}}
+    {{Encuesta.idform = <?php echo $idform; ?>}}
+  </div>
   <div id="form1" class="theform">
     <?php $this->load->view('template/home/form1'); ?>
   </div>
