@@ -7,14 +7,22 @@
 }
 
 .form-control[readonly], .form-control {
-    background-color: #fff;
-    opacity: 1;
+	background-color: #fff;
+	opacity: 1;
 }
 
 md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
-    color: rgba(255,0,0,0.87);
+	color: rgba(255,0,0,0.87);
 }
 
 .block md-checkbox {
 	display: block;
+}
+
+.ui-grid-row, .ui-grid-cell {
+	height: 35px !important;
+}
+
+.md-button-padia-ico {
+    font-size: 20px;
 }

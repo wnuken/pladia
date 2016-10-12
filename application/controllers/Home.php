@@ -45,5 +45,41 @@ class Home extends CI_Controller {
 		
 	}
 
+	public function reportes(){
+		if(is_numeric($this->session->rol) && $this->session->rol == 1){
+			$data["id_user"] = $this->session->id_user;
+			$data["controller"] = "home";
+			$data["view"] = "home";
+			$data["segment"] = 'reportes';
+			$this->load->view('layout',$data);
+		}else{
+			redirect("/");
+		}
+	}
+
+	public function opcionreporte(){
+		if(is_numeric($this->session->rol) && $this->session->rol == 1){
+			$data["id_user"] = $this->session->id_user;
+			$data["controller"] = "home";
+			$data["view"] = "home";
+			$data["segment"] = 'opcion';
+			$this->load->view('template/home/opcion',$data);
+		}else{
+			redirect("/");
+		}
+	}
+
+	public function opciondescarga(){
+		if(is_numeric($this->session->rol) && $this->session->rol == 1){
+			$data["id_user"] = $this->session->id_user;
+			$data["controller"] = "home";
+			$data["view"] = "home";
+			$data["segment"] = 'opcion';
+			$this->load->view('template/home/opciondes',$data);
+		}else{
+			redirect("/");
+		}
+	}
+
 
 }

@@ -1,7 +1,7 @@
 
 
 
-var pladiaApp = angular.module('pladiaApp',['LocalStorageModule', 'ngMaterial', 'ngMessages']);
+var pladiaApp = angular.module('pladiaApp',['LocalStorageModule', 'ngMaterial', 'ngMessages', 'ui.grid']);
 
 
 pladiaApp.config(function(localStorageServiceProvider){
@@ -311,4 +311,47 @@ pladiaApp.controller('FormController', ['$scope', '$timeout', 'dataService', 'lo
 		// console.log($scope.FinalDate);
 	};
 
+}]);
+
+pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService', 'localStorageService', '$window', function($scope, $timeout, dataService, localStorageService, $window) {
+	console.log('hola');
+
+	$scope.gridOptions = {
+		modifierKeysToMultiSelectCells: true,
+		showGridFooter: true
+	};
+
+	$scope.editar = function(id){
+		console.log(id);
+		var landingUrl = './formulario?idform='+id;
+		$window.open(landingUrl, "_self");
+	};
+
+	 $scope.gridOptions.columnDefs = [
+    { name: 'id', width:'150', displayName: "Código" },
+    { name: 'name', width:'200', displayName: 'Encuestado'},
+    { name: 'tel', width:'100', displayName: 'Télefono' },
+    { name: 'city', width:'200', displayName: 'Recolector' },
+    { name: 'super', width:'200', displayName: 'Supervisor'},
+    {name: "Opciones",  cellTemplate:'./opcionreporte', headerCellTemplate: './opciondescarga'}
+  ];
+
+	$scope.gridOptions.data = [
+	{
+		"id":"1476147679",
+		"name":"Mario",
+		"tel":"2473345",
+		"city":"deefe1",
+		"super":"Agyihe",
+		"editar":""
+	},
+	{
+		"id":"1476147670",
+		"name":"Mario",
+		"tel":"2473345",
+		"city":"deefe1",
+		"super":"Agyihe",
+		"editar":""
+	}
+	];
 }]);

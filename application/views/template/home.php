@@ -16,6 +16,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
 				<li><a href="./formulario">Formulario</a></li>
+				<li><a href="./reportes">Reportes</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
