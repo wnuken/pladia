@@ -79,10 +79,54 @@ class General extends CI_Controller {
 		$result = array();
 		$params = $this->input->get(NULL, TRUE);
 
-		$result = $this->GeneralModel->getForm($params);
+		if(isset($params['idform']))
+			$result = $this->GeneralModel->getForm($params);
 
-		$response = $result['dataform'];
+		if(isset($result['dataform'])){
+			$response = $result['dataform'];
+			$this->getViewDirect($response);
+		}
+		
 
-		echo $response;	
+	}
+
+	public function getreports(){
+		$result = array();
+		$params = $this->input->get(NULL, TRUE);
+
+		$result = $this->GeneralModel->getReports();
+
+		foreach ($result as $key => $value) {
+			$r2[$key] = json_decode($value['dataform'], TRUE);
+		}
+
+		// var_dump($result);
+
+		$response = array(
+			'dataform' => $r2, 
+			'messge' => 'forms',
+			'status' => TRUE);
+		
+		$this->getView($response);
+	}
+
+	private function getView($params)
+	{	
+		if(is_numeric($this->session->rol)){
+			$data['data']['elements'] = $params;
+			$this->load->view('/template/json_response',$data);
+		}else{
+			redirect('./');
+		}
+	}
+
+	private function getViewDirect($params)
+	{	
+		if(is_numeric($this->session->rol)){
+			$data['data'] = $params;
+			$this->load->view('/template/json_file',$data);
+		}else{
+			redirect('./');
+		}
 	}
 }

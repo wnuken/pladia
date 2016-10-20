@@ -31,5 +31,5 @@
 </div>
 
 <div class="container footer">
-	<nav class="navbar navbar-inverse"></nav>
+	
 </div>
