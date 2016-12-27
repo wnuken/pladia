@@ -23,11 +23,19 @@
 						<th>{{titles.recolector}}</th>
 						<th>{{titles.supervisor}}</th>
 						<th>{{titles.departamento}}</th>
-						<th>{{titles.supervisor}}</th>
-						<th>{{titles.supervisor}}</th>
-						<th>{{titles.supervisor}}</th>
-						<th>{{titles.supervisor}}</th>
-						<th>{{titles.supervisor}}</th>
+						<th>{{titles.municipio}}</th>
+						<th>{{titles.corregimiento}}</th>
+						<th>{{titles.sectorrural}}</th>
+						<th>{{titles.resguardo}}</th>
+						<th>{{titles.nomcomunidad}}</th>
+						<th>{{titles.totalhogares}}</th>
+						<th>{{titles.numerohogar}}</th>
+						<th>{{titles.inundaciones}}</th>
+						<th>{{titles.avalanchas}}</th>
+						<th>{{titles.desbodamientos}}</th>
+						<th>{{titles.deslizamientos}}</th>
+						<th>{{titles.vendavales}}</th>
+						<th>{{titles.otrodesastre}}</th>
 						<th>{{titles.supervisor}}</th>
 					</tr>
 					<tr ng-repeat="report in gridOptions.data">
@@ -37,10 +45,19 @@
 						<td>{{report.nombrerecolector}}</td>
 						<td>{{report.nombresupervisor}}</td>
 						<td>{{report.departamento}}</td>
-						<td>{{report.nombresupervisor}}</td>
-						<td>{{report.nombresupervisor}}</td>
-						<td>{{report.nombresupervisor}}</td>
-						<td>{{report.nombresupervisor}}</td>
+						<td>{{report.municipio}}</td>
+						<td>{{report.corregimiento}}</td>
+						<td>{{report.sectorrural}}</td>
+						<td>{{report.resguardo}}</td>
+						<td>{{report.nomcomunidad}}</td>
+						<td>{{report.totalhogares}}</td>
+						<td>{{report.numerohogar}}</td>
+						<td>{{report.inundaciones}}</td>
+						<td>{{report.avalanchas}}</td>
+						<td>{{report.desbodamientos}}</td>
+						<td>{{report.deslizamientos}}</td>
+						<td>{{report.vendavales}}</td>
+						<td>{{report.otrodesastre}}</td>
 						<td>{{report.nombresupervisor}}</td>
 					</tr>
 				</table>

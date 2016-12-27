@@ -98,9 +98,15 @@ class General extends CI_Controller {
 
 		foreach ($result as $key => $value) {
 			$r2[$key] = json_decode($value['dataform'], TRUE);
+			if(isset($r2[$key]['departamento']))
+				$this->GeneralModel->getDepartamentoById($r2[$key]);
+			if(isset($r2[$key]['municipio']))
+				$this->GeneralModel->getMunicipioById($r2[$key]);
+			// []
 		}
 
-		// var_dump($result);
+		//var_dump($r2[6]['departamento']);
+		//die();
 
 		$response = array(
 			'dataform' => $r2, 

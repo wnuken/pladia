@@ -324,7 +324,21 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 		encuenstado: "Encuestado",
 		telefono: "Télefono",
 		recolector: "Recolector",
-		supervisor: "Supervisor"
+		supervisor: "Supervisor",
+		departamento: "Departamento",
+		municipio: "Municipio",
+		corregimiento: "Corregimiento",
+		sectorrural: "Sector Rural",
+		resguardo: "Territorio",
+		nomcomunidad: "Nombre del Territorio",
+		totalhogares: "Total Hogares",
+		numerohogar: "Número Hogar",
+		inundaciones: "Inundaciones",
+		avalanchas: "Avalanchas",
+		desbodamientos: "Desbordamiento de ríos, quebradas",
+		deslizamientos: "Deslizamientos",
+		vendavales: "Vendavales",
+		otrodesastre: "Otro desastre natural"
 	};
 
 	$scope.parasSend;
@@ -351,6 +365,25 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 	dataService.get($scope.parasSend, url, function(dataResponse){
 		console.log(dataResponse.elements.dataform);
 		$scope.gridOptions.data = dataResponse.elements.dataform;
+
+		angular.forEach($scope.gridOptions.data, function(value, key){
+			if(value.sectorrural == 1){
+				$scope.gridOptions.data[key].sectorrural = 'Centro Poblado';
+			}else if(value.sectorrural == 2){
+				$scope.gridOptions.data[key].sectorrural = 'Rural disperso';
+			}else{
+				$scope.gridOptions.data[key].sectorrural = '';
+			};
+
+			if(value.resguardo == 1){
+				$scope.gridOptions.data[key].resguardo = 'Resguardo indígena';
+			}else if(value.resguardo == 2){
+				$scope.gridOptions.data[key].resguardo = 'Consejo comunigtario';
+			}else{
+				$scope.gridOptions.data[key].resguardo = '';
+			};
+		});
+
 		///$scope.municipios = dataResponse;
 	});
 

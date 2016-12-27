@@ -40,7 +40,7 @@ class GeneralModel extends CI_Model {
         return $result;
     }
 
-    public function getMunicipioById( &$params){
+    public function getMunicipioById(& $params){
         $this->db->where('id_munipo',$params['municipio']);
         $this->db->select('id_munipo, municipio');
         $query = $this->db->get('municipios');
@@ -61,6 +61,7 @@ class GeneralModel extends CI_Model {
     public function getReports()
     {
       $this->db->select('dataform');
+      $this->db->limit(10);
       $query = $this->db->get('formularios');
       $result = $query->result_array();
       return $result;
