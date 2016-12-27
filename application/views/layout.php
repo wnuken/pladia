@@ -26,6 +26,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?> "></script>
 <script src="<?php echo base_url("/assets/datepicker/js/bootstrap-datepicker.min.js"); ?>" rel="stylesheet"></script>
 <script src="<?php echo base_url("/assets/datepicker/locales/bootstrap-datepicker.es.min.js"); ?>" rel="stylesheet"></script>
+<script src="<?php echo base_url("/assets/base64encode/jquery.base64.min.js"); ?>" rel="text/javascript"></script>
 
 <script type="text/javascript" src="<?php echo base_url("assets/angularjs/js/angular.1.5.7.min.js"); ?>"></script>
 

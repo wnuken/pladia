@@ -319,6 +319,14 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 		showGridFooter: true
 	};
 
+	$scope.titles = {
+		code: "Código",
+		encuenstado: "Encuestado",
+		telefono: "Télefono",
+		recolector: "Recolector",
+		supervisor: "Supervisor"
+	};
+
 	$scope.parasSend;
 
 	var url = '../general/getreports';
@@ -332,19 +340,24 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 	};
 
 	$scope.gridOptions.columnDefs = [
-	{ name: 'idform', width:'150', displayName: "Código" },
-	{ name: 'nombreencuestado', width:'200', displayName: 'Encuestado'},
-	{ name: 'telefonoencuestado', width:'100', displayName: 'Télefono' },
-	{ name: 'nombrerecolector', width:'200', displayName: 'Recolector' },
-	{ name: 'nombresupervisor', width:'200', displayName: 'Supervisor'},
+	{ name: 'idform', width:'150', displayName: $scope.titles.code},
+	{ name: 'nombreencuestado', width:'200', displayName: $scope.titles.encuenstado},
+	{ name: 'telefonoencuestado', width:'100', displayName: $scope.titles.telefono},
+	{ name: 'nombrerecolector', width:'200', displayName: $scope.titles.recolector},
+	{ name: 'nombresupervisor', width:'200', displayName: $scope.titles.supervisor},
 	{ name: "opciones",  cellTemplate:'./opcionreporte'}
 	];
 
 	dataService.get($scope.parasSend, url, function(dataResponse){
 		console.log(dataResponse.elements.dataform);
-	$scope.gridOptions.data = dataResponse.elements.dataform;
+		$scope.gridOptions.data = dataResponse.elements.dataform;
 		///$scope.municipios = dataResponse;
 	});
+
+	$scope.exportExcel = function(){
+		$table = $.base64.encode($('div#exportTable').html());
+		$window.open('data:application/vnd.ms-excel;base64,' + $table);
+	};
 
 	
 }]);
