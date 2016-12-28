@@ -102,37 +102,70 @@ class General extends CI_Controller {
 				$this->GeneralModel->getDepartamentoById($r2[$key]);
 			if(isset($r2[$key]['municipio']))
 				$this->GeneralModel->getMunicipioById($r2[$key]);
+			if(isset($r2[$key]['idform']))
+				$r2[$key]['fechaform'] = date("Y/m/d", $r2[$key]['idform']);
+			
+			if(isset($r2[$key]['area']))
+				$r2[$key]['area'] = json_decode($r2[$key]['area'], TRUE);
+			if(isset($r2[$key]['areacultivo']))
+				$r2[$key]['areacultivo'] = json_decode($r2[$key]['areacultivo'], TRUE);
+			if(isset($r2[$key]['arrobascosecha']))
+				$r2[$key]['arrobascosecha'] = json_decode($r2[$key]['arrobascosecha'], TRUE);
+
+			if(isset($r2[$key]['destinoproduc1']))
+				$r2[$key]['destinoproduc1'] = json_decode($r2[$key]['destinoproduc1'], TRUE);
+			if(isset($r2[$key]['destinoproduc2']))
+				$r2[$key]['destinoproduc2'] = json_decode($r2[$key]['destinoproduc2'], TRUE);
+			if(isset($r2[$key]['destinoproduc3']))
+				$r2[$key]['destinoproduc3'] = json_decode($r2[$key]['destinoproduc3'], TRUE);
+			if(isset($r2[$key]['explota']))
+				$r2[$key]['explota'] = json_decode($r2[$key]['explota'], TRUE);
+
+			if(isset($r2[$key]['fuenteproduccion2']))
+				$r2[$key]['fuenteproduccion2'] = json_decode($r2[$key]['fuenteproduccion2'], TRUE);
+			if(isset($r2[$key]['fuenteproduccion3']))
+				$r2[$key]['fuenteproduccion3'] = json_decode($r2[$key]['fuenteproduccion3'], TRUE);
+			if(isset($r2[$key]['fuenteproduccion4']))
+				$r2[$key]['fuenteproduccion4'] = json_decode($r2[$key]['fuenteproduccion4'], TRUE);
+
+			if(isset($r2[$key]['pecuario']))
+				$r2[$key]['pecuario'] = json_decode($r2[$key]['pecuario'], TRUE);
+
+			if(isset($r2[$key]['presona']))
+				$r2[$key]['presona'] = json_decode($r2[$key]['presona'], TRUE);
+
+				
 			// []
-		}
+			}
 
 		//var_dump($r2[6]['departamento']);
 		//die();
 
-		$response = array(
-			'dataform' => $r2, 
-			'messge' => 'forms',
-			'status' => TRUE);
-		
-		$this->getView($response);
-	}
+			$response = array(
+				'dataform' => $r2, 
+				'messge' => 'forms',
+				'status' => TRUE);
 
-	private function getView($params)
-	{	
-		if(is_numeric($this->session->rol)){
-			$data['data']['elements'] = $params;
-			$this->load->view('/template/json_response',$data);
-		}else{
-			redirect('./');
+			$this->getView($response);
+		}
+
+		private function getView($params)
+		{	
+			if(is_numeric($this->session->rol)){
+				$data['data']['elements'] = $params;
+				$this->load->view('/template/json_response',$data);
+			}else{
+				redirect('./');
+			}
+		}
+
+		private function getViewDirect($params)
+		{	
+			if(is_numeric($this->session->rol)){
+				$data['data'] = $params;
+				$this->load->view('/template/json_file',$data);
+			}else{
+				redirect('./');
+			}
 		}
 	}
-
-	private function getViewDirect($params)
-	{	
-		if(is_numeric($this->session->rol)){
-			$data['data'] = $params;
-			$this->load->view('/template/json_file',$data);
-		}else{
-			redirect('./');
-		}
-	}
-}

@@ -316,11 +316,13 @@ pladiaApp.controller('FormController', ['$scope', '$timeout', 'dataService', 'lo
 pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService', 'localStorageService', '$window', function($scope, $timeout, dataService, localStorageService, $window) {
 	$scope.gridOptions = {
 		modifierKeysToMultiSelectCells: true,
-		showGridFooter: true
+		showGridFooter: true,
+		enableFiltering: true,
 	};
 
 	$scope.titles = {
 		code: "Código",
+		fechaform: "Fecha",
 		encuenstado: "Encuestado",
 		telefono: "Télefono",
 		recolector: "Recolector",
@@ -338,7 +340,23 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 		desbodamientos: "Desbordamiento de ríos, quebradas",
 		deslizamientos: "Deslizamientos",
 		vendavales: "Vendavales",
-		otrodesastre: "Otro desastre natural"
+		otrodesastre: "Otro desastre natural",
+		tiempovivido: "¿Ha vivido siempre en este municipio?",
+		tiempovividoanos: "Desde que año vive en el municipio",
+		razonvivirnum: "Razón para venir a este municipio",
+		tipovivienda: "Tipo de vivienda",
+		materialparedes: "Material paredes",
+		materialpisos: "Material pisos",
+		servienergia: "Servicio Energía",
+		servigas: "Servicio Gas",
+		servialcant: "Servicio alcantarillado",
+		servireco: "Servicio recoleción de basuras",
+		serviacueducto: "Servicio de acueducto",
+		estrato: "Estrato",
+		cuantaspersonas1: "¿Cuántas personas componen su hogar?",
+		cuartos: "¿de cuántos cuartos en total dispone su hogar?",
+		habitaciones: "¿En cuántos de esos cuartos  duermen las personas de su hogar?",
+		basura: "¿Cómo eliminan principalmente la basura en su hogar?"
 	};
 
 	$scope.parasSend;
@@ -355,10 +373,11 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 
 	$scope.gridOptions.columnDefs = [
 	{ name: 'idform', width:'150', displayName: $scope.titles.code},
+	{ name: 'fechaform', width:'150', displayName: $scope.titles.fechaform},
 	{ name: 'nombreencuestado', width:'200', displayName: $scope.titles.encuenstado},
 	{ name: 'telefonoencuestado', width:'100', displayName: $scope.titles.telefono},
-	{ name: 'nombrerecolector', width:'200', displayName: $scope.titles.recolector},
-	{ name: 'nombresupervisor', width:'200', displayName: $scope.titles.supervisor},
+	{ name: 'nombrerecolector', width:'180', displayName: $scope.titles.recolector},
+	{ name: 'nombresupervisor', width:'180', displayName: $scope.titles.supervisor},
 	{ name: "opciones",  cellTemplate:'./opcionreporte'}
 	];
 
@@ -382,6 +401,94 @@ pladiaApp.controller('ReportesController', ['$scope', '$timeout', 'dataService',
 			}else{
 				$scope.gridOptions.data[key].resguardo = '';
 			};
+
+			if(value.tiempovivido == 1){
+				$scope.gridOptions.data[key].tiempovivido = 'SI';
+			}else if(value.tiempovivido == 2){
+				$scope.gridOptions.data[key].tiempovivido = 'NO';
+			}else{
+				$scope.gridOptions.data[key].tiempovivido = '';
+			};
+
+
+			if(value.razonvivirnum == 1){
+				$scope.gridOptions.data[key].razonvivirnum = 'Laborales u oportunidad de negocio';
+			}else if(value.razonvivirnum == 2){
+				$scope.gridOptions.data[key].razonvivirnum = 'Más oportunidades de educación';
+			}else if(value.razonvivirnum == 3){
+				$scope.gridOptions.data[key].razonvivirnum = 'Motivos de salud';
+			}else if(value.razonvivirnum == 4){
+				$scope.gridOptions.data[key].razonvivirnum = 'Matrimonio o conformación de un hogar';
+			}else if(value.razonvivirnum == 5){
+				$scope.gridOptions.data[key].razonvivirnum = 'Amenaza o riesgo para su vida por conflicto armado';
+			}else if(value.razonvivirnum == 6){
+				$scope.gridOptions.data[key].razonvivirnum = 'Amenaza o riesgo para su vida por  delincuencia común';
+			}else if(value.razonvivirnum == 7){
+				$scope.gridOptions.data[key].razonvivirnum = value.razonvivirnumcual;
+			}else{
+				$scope.gridOptions.data[key].razonvivirnum = '';
+			};
+
+			if(value.tipovivienda == 1){
+				$scope.gridOptions.data[key].tipovivienda = 'Casa';
+			}else if(value.tipovivienda == 2){
+				$scope.gridOptions.data[key].tipovivienda = 'Apartamento';
+			}else if(value.tipovivienda == 3){
+				$scope.gridOptions.data[key].tipovivienda = 'Cuartos en inquilinato';
+			}else if(value.tipovivienda == 4){
+				$scope.gridOptions.data[key].tipovivienda = 'Otro tipo de vivienda (carpa, tienda, vagón, refugio natural etc.)';
+			}else{
+				$scope.gridOptions.data[key].tipovivienda = '';
+			};
+
+			if(value.materialparedes == 1){
+				$scope.gridOptions.data[key].materialparedes = 'Ladrillo a la vista';
+			}else if(value.materialparedes == 2){
+				$scope.gridOptions.data[key].materialparedes = 'Bloque a la vista';
+			}else if(value.materialparedes == 3){
+				$scope.gridOptions.data[key].materialparedes = 'Ladrillo o bloque revocado o pañetado';
+			}else if(value.materialparedes == 4){
+				$scope.gridOptions.data[key].materialparedes = 'Piedra o madera pulida';
+			}else if(value.materialparedes == 5){
+				$scope.gridOptions.data[key].materialparedes = 'Tapia pisada, adobe';
+			}else if(value.materialparedes == 6){
+				$scope.gridOptions.data[key].materialparedes = 'Madera burda, tabla o tablón';
+			}else if(value.materialparedes == 7){
+				$scope.gridOptions.data[key].materialparedes = 'Zinc, tela, lona, cartón, latas, desechos, plástico';
+			}else{
+				$scope.gridOptions.data[key].materialparedes = '';
+			};
+
+			if(value.materialpisos == 1){
+				$scope.gridOptions.data[key].materialpisos = 'Baldosa, cerámica, madera pulida, alfombra';
+			}else if(value.materialpisos == 2){
+				$scope.gridOptions.data[key].materialpisos = 'Ladrillo, madera pulida sin lacar';
+			}else if(value.materialpisos == 3){
+				$scope.gridOptions.data[key].materialpisos = 'Madera burda, tabla o tablón, otro vegetal';
+			}else if(value.materialpisos == 4){
+				$scope.gridOptions.data[key].materialpisos = 'emento, gravilla';
+			}else if(value.materialpisos == 5){
+				$scope.gridOptions.data[key].materialpisos = 'Tierra, arena';
+			}else{
+				$scope.gridOptions.data[key].materialpisos = '';
+			};
+
+			if(value.basura == 1){
+				$scope.gridOptions.data[key].basura = 'Por recolección pública o privada';
+			}else if(value.basura == 2){
+				$scope.gridOptions.data[key].basura = 'La tiran a un río, quebrada o laguna';
+			}else if(value.basura == 3){
+				$scope.gridOptions.data[key].basura = 'La tiran a un lote, zanja o baldío';
+			}else if(value.basura == 4){
+				$scope.gridOptions.data[key].basura = 'La queman o entierran';
+			}else if(value.basura == 5){
+				$scope.gridOptions.data[key].basura = 'La eliminan de otra forma';
+			}else{
+				$scope.gridOptions.data[key].basura = '';
+			};
+			
+
+			
 		});
 
 		///$scope.municipios = dataResponse;
